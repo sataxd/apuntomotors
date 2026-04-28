@@ -1,0 +1,26 @@
+.myProducts {
+    position: relative;
+}
+
+.myProducts .swiper-button-prev {
+    background-image: url("/assets/img/swiper/right.png"); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    width: 14px; /* Ajusta el ancho según tu imagen */
+    height: 21px; /* Ajusta la altura según tu imagen */
+    cursor: pointer;
+    rotate: 180deg;
+    left: -0px;
+}
+.myProducts .swiper-button-next {
+    background-image: url("/assets/img/swiper/right.png"); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    width: 14px; /* Ajusta el ancho según tu imagen */
+    height: 21px; /* Ajusta la altura según tu imagen */
+    cursor: pointer;
+    right: -0px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none;
+}

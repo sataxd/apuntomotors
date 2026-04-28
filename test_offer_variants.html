@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Variantes en Ofertas</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-case { border: 1px solid #ccc; margin: 10px 0; padding: 15px; border-radius: 8px; }
+        .variant-selectors { margin: 10px 0; padding: 10px; background: #f5f5f5; border-radius: 5px; }
+        .color-option { display: inline-block; width: 20px; height: 20px; border-radius: 50%; margin: 0 5px; cursor: pointer; border: 2px solid transparent; }
+        .color-option.selected { border-color: #333; }
+        button { padding: 8px 16px; margin: 5px; border: none; border-radius: 4px; cursor: pointer; }
+        .add-to-cart { background: #007bff; color: white; }
+        .no-stock { background: #ccc; color: #666; cursor: not-allowed; }
+        .stock-info { font-weight: bold; color: #28a745; }
+        .no-stock-info { font-weight: bold; color: #dc3545; }
+    </style>
+</head>
+<body>
+    <h1>🛍️ Prueba de Sistema de Ofertas con Variantes</h1>
+    
+    <div class="test-case">
+        <h3>Caso 1: Producto principal + Oferta sin variantes</h3>
+        <p><strong>Producto:</strong> Shampoo Premium</p>
+        <p><strong>Oferta:</strong> Acondicionador Básico (Sin variantes)</p>
+        <div class="stock-info">✅ Stock disponible: 15 unidades</div>
+        <button class="add-to-cart" onclick="addOfferToCart('simple')">Agregar Oferta al Carrito</button>
+    </div>
+
+    <div class="test-case">
+        <h3>Caso 2: Producto principal + Oferta con colores</h3>
+        <p><strong>Producto:</strong> Crema Facial</p>
+        <p><strong>Oferta:</strong> Labial Premium (Con colores)</p>
+        
+        <div class="variant-selectors">
+            <label>Color de la oferta:</label><br>
+            <div class="color-option selected" style="background-color: #ff69b4;" onclick="selectOfferColor(this, 'Rosa', 8)" title="Rosa"></div>
+            <div class="color-option" style="background-color: #dc143c;" onclick="selectOfferColor(this, 'Rojo', 3)" title="Rojo"></div>
+            <div class="color-option" style="background-color: #800080;" onclick="selectOfferColor(this, 'Morado', 0)" title="Morado"></div>
+        </div>
+        
+        <div id="color-stock" class="stock-info">✅ Stock disponible: 8 unidades (Rosa)</div>
+        <button id="color-cart-btn" class="add-to-cart" onclick="addOfferToCart('color')">Agregar Oferta al Carrito</button>
+    </div>
+
+    <div class="test-case">
+        <h3>Caso 3: Producto principal + Oferta con tallas</h3>
+        <p><strong>Producto:</strong> Perfume Elegance</p>
+        <p><strong>Oferta:</strong> Camiseta Wefem (Con tallas)</p>
+        
+        <div class="variant-selectors">
+            <label>Talla de la oferta:</label><br>
+            <select id="size-selector" onchange="selectOfferSize(this.value)">
+                <option value="S" data-stock="2">Talla S</option>
+                <option value="M" data-stock="5">Talla M</option>
+                <option value="L" data-stock="0">Talla L</option>
+                <option value="XL" data-stock="3">Talla XL</option>
+            </select>
+        </div>
+        
+        <div id="size-stock" class="stock-info">✅ Stock disponible: 2 unidades (Talla S)</div>
+        <button id="size-cart-btn" class="add-to-cart" onclick="addOfferToCart('size')">Agregar Oferta al Carrito</button>
+    </div>
+
+    <div class="test-case">
+        <h3>Caso 4: Producto principal + Oferta con colores Y tallas</h3>
+        <p><strong>Producto:</strong> Set de Maquillaje</p>
+        <p><strong>Oferta:</strong> Blusa Fashion (Con colores y tallas)</p>
+        
+        <div class="variant-selectors">
+            <label>Color de la oferta:</label><br>
+            <div class="color-option selected" style="background-color: #000000;" onclick="selectComplexColor(this, 'Negro')" title="Negro"></div>
+            <div class="color-option" style="background-color: #ffffff; border: 1px solid #ccc;" onclick="selectComplexColor(this, 'Blanco')" title="Blanco"></div>
+            <div class="color-option" style="background-color: #0000ff;" onclick="selectComplexColor(this, 'Azul')" title="Azul"></div>
+            
+            <br><br>
+            <label>Talla de la oferta:</label><br>
+            <select id="complex-size-selector" onchange="updateComplexStock()">
+                <option value="S">Talla S</option>
+                <option value="M">Talla M</option>
+                <option value="L">Talla L</option>
+            </select>
+        </div>
+        
+        <div id="complex-stock" class="stock-info">✅ Stock disponible: 4 unidades (Negro - S)</div>
+        <button id="complex-cart-btn" class="add-to-cart" onclick="addOfferToCart('complex')">Agregar Oferta al Carrito</button>
+    </div>
+
+    <div style="margin-top: 30px; padding: 15px; background: #e7f3ff; border-radius: 8px;">
+        <h3>📋 Registro de Acciones</h3>
+        <div id="action-log" style="font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;"></div>
+    </div>
+
+    <script>
+        // Variables globales para tracking
+        let selectedOfferColor = 'Rosa';
+        let selectedOfferSize = 'S';
+        let selectedComplexColor = 'Negro';
+        let selectedComplexSize = 'S';
+
+        // Stock matrix para el caso complejo (color + talla)
+        const complexStock = {
+            'Negro': { 'S': 4, 'M': 7, 'L': 2 },
+            'Blanco': { 'S': 1, 'M': 0, 'L': 5 },
+            'Azul': { 'S': 3, 'M': 6, 'L': 1 }
+        };
+
+        function logAction(message) {
+            const log = document.getElementById('action-log');
+            const timestamp = new Date().toLocaleTimeString();
+            log.innerHTML += `[${timestamp}] ${message}<br>`;
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function selectOfferColor(element, color, stock) {
+            // Remover selección anterior
+            document.querySelectorAll('.color-option').forEach(el => el.classList.remove('selected'));
+            // Agregar selección actual
+            element.classList.add('selected');
+            
+            selectedOfferColor = color;
+            const stockDiv = document.getElementById('color-stock');
+            const cartBtn = document.getElementById('color-cart-btn');
+            
+            if (stock > 0) {
+                stockDiv.innerHTML = `✅ Stock disponible: ${stock} unidades (${color})`;
+                stockDiv.className = 'stock-info';
+                cartBtn.className = 'add-to-cart';
+                cartBtn.disabled = false;
+            } else {
+                stockDiv.innerHTML = `❌ Sin stock (${color})`;
+                stockDiv.className = 'no-stock-info';
+                cartBtn.className = 'no-stock';
+                cartBtn.disabled = true;
+            }
+            
+            logAction(`Color seleccionado: ${color} (Stock: ${stock})`);
+        }
+
+        function selectOfferSize(size) {
+            const option = document.querySelector(`#size-selector option[value="${size}"]`);
+            const stock = parseInt(option.dataset.stock);
+            selectedOfferSize = size;
+            
+            const stockDiv = document.getElementById('size-stock');
+            const cartBtn = document.getElementById('size-cart-btn');
+            
+            if (stock > 0) {
+                stockDiv.innerHTML = `✅ Stock disponible: ${stock} unidades (Talla ${size})`;
+                stockDiv.className = 'stock-info';
+                cartBtn.className = 'add-to-cart';
+                cartBtn.disabled = false;
+            } else {
+                stockDiv.innerHTML = `❌ Sin stock (Talla ${size})`;
+                stockDiv.className = 'no-stock-info';
+                cartBtn.className = 'no-stock';
+                cartBtn.disabled = true;
+            }
+            
+            logAction(`Talla seleccionada: ${size} (Stock: ${stock})`);
+        }
+
+        function selectComplexColor(element, color) {
+            // Remover selección anterior
+            document.querySelectorAll('.color-option').forEach(el => el.classList.remove('selected'));
+            // Agregar selección actual
+            element.classList.add('selected');
+            
+            selectedComplexColor = color;
+            updateComplexStock();
+            logAction(`Color complejo seleccionado: ${color}`);
+        }
+
+        function updateComplexStock() {
+            selectedComplexSize = document.getElementById('complex-size-selector').value;
+            const stock = complexStock[selectedComplexColor][selectedComplexSize];
+            
+            const stockDiv = document.getElementById('complex-stock');
+            const cartBtn = document.getElementById('complex-cart-btn');
+            
+            if (stock > 0) {
+                stockDiv.innerHTML = `✅ Stock disponible: ${stock} unidades (${selectedComplexColor} - ${selectedComplexSize})`;
+                stockDiv.className = 'stock-info';
+                cartBtn.className = 'add-to-cart';
+                cartBtn.disabled = false;
+            } else {
+                stockDiv.innerHTML = `❌ Sin stock (${selectedComplexColor} - ${selectedComplexSize})`;
+                stockDiv.className = 'no-stock-info';
+                cartBtn.className = 'no-stock';
+                cartBtn.disabled = true;
+            }
+            
+            logAction(`Combinación actualizada: ${selectedComplexColor} - ${selectedComplexSize} (Stock: ${stock})`);
+        }
+
+        function addOfferToCart(type) {
+            let message = '';
+            switch(type) {
+                case 'simple':
+                    message = '🛒 Oferta agregada: Acondicionador Básico (sin variantes)';
+                    break;
+                case 'color':
+                    message = `🛒 Oferta agregada: Labial Premium - Color: ${selectedOfferColor}`;
+                    break;
+                case 'size':
+                    message = `🛒 Oferta agregada: Camiseta Wefem - Talla: ${selectedOfferSize}`;
+                    break;
+                case 'complex':
+                    message = `🛒 Oferta agregada: Blusa Fashion - ${selectedComplexColor}, Talla ${selectedComplexSize}`;
+                    break;
+            }
+            logAction(message);
+            alert(message);
+        }
+
+        // Inicializar
+        logAction('Sistema de ofertas con variantes inicializado ✅');
+        logAction('Simulando comportamiento del componente Detail.jsx');
+    </script>
+</body>
+</html>

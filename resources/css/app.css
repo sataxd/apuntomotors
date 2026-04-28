@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.banner-swiper .swiper-pagination-bullet {
+  background-color: white;
+  opacity: 0.25;
+}
+
+.banner-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.swiper-pagination-slider .swiper-pagination-bullet {
+  background: #fff !important;
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px !important;
+}
+
+.swiper-pagination-slider .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #fff !important;
+  transform: scale(1.2);
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+
+
+.html-content ul {
+    list-style-type: disc !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem;
+}
+
+.html-content ol {
+    list-style-type: decimal !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem;
+}
+
+.html-content li {
+    display: list-item !important; /* Asegura que se comporte como lista */
+}
+
+.html-content ul, 
+.html-content ol {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    margin-left: 1.5rem;
+    list-style-position: outside;
+}
+
+
+
+
+.html-content-second ul {
+    list-style-type: disc !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem;
+}
+
+.html-content-second ol {
+    list-style-type: decimal !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem;
+}
+
+.html-content-second li {
+    display: list-item !important; /* Asegura que se comporte como lista */
+}
+
+.html-content-second ul, 
+.html-content-second ol {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; 
+    margin-left: 1.5rem;
+    list-style-position: outside;
+}
+
+.high-z-index {
+    z-index: 9999 !important;
+}
+
+.swal2-container {
+    z-index: 3000 !important;
+}

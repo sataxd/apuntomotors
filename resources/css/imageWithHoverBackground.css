@@ -1,0 +1,20 @@
+/* CSS (ImageWithHoverBackground.css) */
+.image-hover-container {
+    display: inline-block;
+    padding: 10px; /* Espacio para el fondo */
+    background: #e0e0e0; /* Gris inicial */
+    transition: background 0.3s ease;
+    border-radius: 8px; /* Opcional */
+}
+
+.image-hover-container:hover {
+    background: #ffa500; /* Naranja al hover */
+}
+
+.image-with-hover {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* Forzar que el fondo de la imagen sea visible */
+    mix-blend-mode: multiply; /* ¡Clave! */
+}

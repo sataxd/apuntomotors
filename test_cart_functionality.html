@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Funcionalidad del Carrito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-card {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .warning { background-color: #fff3cd; color: #856404; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        button {
+            background: #5F48B7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #4a3692;
+        }
+        .console-output {
+            background: #000;
+            color: #00ff00;
+            font-family: monospace;
+            padding: 10px;
+            border-radius: 4px;
+            height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test - Funcionalidad del Carrito y Ofertas</h1>
+    
+    <div class="test-card">
+        <h2>📋 Tests Implementados</h2>
+        <div class="status success">
+            ✅ Corregido el problema en CarritoContext - la función ahora retorna un resultado
+        </div>
+        <div class="status success">
+            ✅ Corregido el manejo de errores en Detail.jsx con try/catch
+        </div>
+        <div class="status success">
+            ✅ Corregido el problema de useState dentro del map en Header.jsx
+        </div>
+        <div class="status success">
+            ✅ Agregado debug logging para identificar problemas
+        </div>
+    </div>
+
+    <div class="test-card">
+        <h2>🔧 Tests a Realizar</h2>
+        <button onclick="testCartFunctionality()">Test 1: Agregar producto normal al carrito</button>
+        <button onclick="testOfferFunctionality()">Test 2: Agregar oferta con variantes al carrito</button>
+        <button onclick="testHeaderAd()">Test 3: Banner de oferta en Header</button>
+        <button onclick="checkConsole()">Test 4: Verificar logs en consola</button>
+    </div>
+
+    <div class="test-card">
+        <h2>📝 Instrucciones de Prueba Manual</h2>
+        <ol>
+            <li><strong>Producto Normal:</strong>
+                <ul>
+                    <li>Ir a un producto en la tienda</li>
+                    <li>Seleccionar color y talla (si aplica)</li>
+                    <li>Hacer clic en "Añadir al carrito"</li>
+                    <li>Verificar que aparezca en el carrito</li>
+                </ul>
+            </li>
+            <li><strong>Ofertas con Variantes:</strong>
+                <ul>
+                    <li>Ir a un producto que tenga ad con offer_item que tenga variantes</li>
+                    <li>Agregar el producto principal al carrito</li>
+                    <li>Verificar que aparezca el modal de oferta</li>
+                    <li>Seleccionar color/talla en el modal</li>
+                    <li>Hacer clic en la imagen de la oferta</li>
+                    <li>Verificar que se agregue la oferta al carrito</li>
+                </ul>
+            </li>
+            <li><strong>Header con Ofertas:</strong>
+                <ul>
+                    <li>Tener productos con ofertas en el carrito</li>
+                    <li>Abrir el modal del carrito (icono del carrito)</li>
+                    <li>Verificar que aparezcan banners de ofertas</li>
+                    <li>Si la oferta tiene variantes, verificar selectores</li>
+                    <li>Hacer clic en el banner para agregar la oferta</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="test-card">
+        <h2>🖥️ Salida de la Consola del Navegador</h2>
+        <div class="console-output" id="console-output">
+Abre la consola del navegador (F12) para ver los logs de debug...
+
+Los logs que deberías ver:
+🔧 DEBUG - addProduct called with: {item, quantity, selectedColor, selectedSize, stockDisponible}
+🛒 DEBUG - agregarAlCarrito called with: {producto}
+🛒 DEBUG - Stock verification payload: [...]
+🛒 DEBUG - Stock verification result: [...]
+🛒 DEBUG - Product added to cart successfully
+
+Si no ves estos logs, es posible que haya un error.
+        </div>
+    </div>
+
+    <div class="test-card">
+        <h2>🚨 Problemas Conocidos y Soluciones</h2>
+        <div class="status warning">
+            ⚠️ <strong>Si no funciona agregar al carrito:</strong><br>
+            - Verificar que el componente Detail esté usando la versión compilada más reciente<br>
+            - Limpiar cache del navegador (Ctrl+F5)<br>
+            - Verificar que no haya errores de JavaScript en la consola
+        </div>
+        
+        <div class="status warning">
+            ⚠️ <strong>Si no aparecen las ofertas en el Header:</strong><br>
+            - Verificar que el producto tenga un 'ad' con 'banner_image' y 'offer_item'<br>
+            - Verificar que la oferta no esté ya en el carrito<br>
+            - Verificar que no esté marcada como ya mostrada en localStorage
+        </div>
+    </div>
+
+    <script>
+        function testCartFunctionality() {
+            alert('Prueba manual: Ve a /catalog, selecciona un producto, elige color/talla y agrégalo al carrito. Abre la consola para ver los logs de debug.');
+        }
+
+        function testOfferFunctionality() {
+            alert('Prueba manual: Ve a un producto que tenga una oferta, agrégalo al carrito y verifica si aparece el modal de oferta con selectores de variantes.');
+        }
+
+        function testHeaderAd() {
+            alert('Prueba manual: Con productos en el carrito, abre el modal del carrito y verifica si aparecen banners de ofertas con selectores de color/talla.');
+        }
+
+        function checkConsole() {
+            console.log('🧪 Test manual - Verificando funcionalidad...');
+            console.log('🔧 Si ves este mensaje, el JavaScript está funcionando');
+            console.log('📋 Ahora prueba agregar productos al carrito para ver más logs');
+            alert('Revisa la consola del navegador (F12) para ver los logs de debug.');
+        }
+
+        // Interceptar console.log para mostrar en la página
+        const originalLog = console.log;
+        const outputDiv = document.getElementById('console-output');
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            outputDiv.textContent += args.join(' ') + '\n';
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+        };
+
+        console.log('🚀 Test page loaded - Ready for testing!');
+    </script>
+</body>
+</html>
