@@ -10,9 +10,6 @@ import { CarritoProvider } from "./context/CarritoContext";
 import Swal from "sweetalert2";
 import Global from "./Utils/Global";
 
-import Quiz1 from './Quiz-1.png'
-import Quiz4 from './Quiz-4.png'
-import Result1 from './Result-1.png'
 
 const subscriptionsRest = new SubscriptionsRest();
 // Componente principal del cuestionario

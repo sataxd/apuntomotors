@@ -35,6 +35,7 @@ use App\Http\Controllers\Admin\BundleController as AdminBundleController;
 use App\Http\Controllers\Admin\CouponController as AdminCouponController;
 use App\Http\Controllers\Admin\SaleController as AdminSaleController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\ComplaintController as AdminComplaintController;
 
 // Public 
 use App\Http\Controllers\HomeController;
@@ -47,6 +48,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ElectricoController;
@@ -59,8 +61,12 @@ use App\Http\Controllers\LoginVuaController;
 use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\PopupController;
+use App\Http\Controllers\PrivacyController;
+use App\Http\Controllers\ReturnPoliticsController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ShippingPoliticsController;
 use App\Http\Controllers\SupplyController;
+use App\Http\Controllers\TermsController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestResultController;
 use App\Http\Controllers\ThankController;
@@ -88,6 +94,11 @@ Route::get('/producto/{category_slug}/{subcategory_slug}/{slug}', [DetailControl
 Route::get('/producto/{category_slug}/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
 Route::get('/servicios', [ServicesController::class, 'reactView'])->name('Services.jsx');
 // Route::get('/producto/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
+Route::get('/terminos-y-condiciones', [TermsController::class, 'reactView'])->name('Terms.jsx');
+Route::get('/politicas-de-privacidad', [PrivacyController::class, 'reactView'])->name('Privacy.jsx');
+Route::get('/politicas-de-envios', [ShippingPoliticsController::class, 'reactView'])->name('ShippingPolitics.jsx');
+Route::get('/politicas-de-cambio-y-devolucion', [ReturnPoliticsController::class, 'reactView'])->name('ReturnPolitics.jsx');
+Route::get('/libro-de-reclamaciones', [ComplaintController::class, 'reactView'])->name('ComplaintsBook.jsx');
 
 
 
@@ -164,6 +175,7 @@ Route::middleware(['can:Admin', 'auth'])->prefix('admin')->group(function () {
     Route::get('/core_values', [AdminCoreValueController::class, 'reactView'])->name('Admin/CoreValues.jsx');
     Route::get('/generals', [AdminGeneralController::class, 'reactView'])->name('Admin/Generals.jsx');
     Route::get('/users', [AdminUserController::class, 'reactView'])->name('Admin/Users.jsx');
+    Route::get('/complaints', [AdminComplaintController::class, 'reactView'])->name('Admin/Complaints.jsx');
 
     Route::get('/profile', [AdminProfileController::class, 'reactView'])->name('Admin/Profile.jsx');
     Route::get('/account', [AdminAccountController::class, 'reactView'])->name('Admin/Account.jsx');

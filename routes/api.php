@@ -40,6 +40,7 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\SaleStatusController as AdminSaleStatusController;
 use App\Http\Controllers\Admin\SupplyController as AdminSupplyController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\ComplaintController as AdminComplaintController;
 
 // Customer
 use App\Http\Controllers\Customer\UserFormulasController as CustomerUserFormulasController;
@@ -48,6 +49,7 @@ use App\Http\Controllers\Customer\SaleController as CustomerSaleController;
 
 // Public
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\CoreValueController;
 use App\Http\Controllers\ItemColorController;
 use App\Http\Controllers\CouponController;
@@ -110,6 +112,8 @@ Route::prefix('/ubigeo')->group(function () {
     });
 });
 
+// Libro de reclamaciones
+Route::post('/complaints/save', [ComplaintController::class, 'save']);
 
 // Unified Import API
 Route::post('/unified-import', [UnifiedImportController::class, 'import']);
@@ -341,6 +345,12 @@ Route::middleware('auth')->group(function () {
         Route::patch('/core_values/status', [AdminCoreValueController::class, 'status']);
         Route::patch('/core_values/{field}', [AdminCoreValueController::class, 'boolean']);
         Route::delete('/core_values/{id}', [AdminCoreValueController::class, 'delete']);
+
+        Route::post('/complaints', [AdminComplaintController::class, 'save']);
+        Route::post('/complaints/paginate', [AdminComplaintController::class, 'paginate']);
+        Route::patch('/complaints/status', [AdminComplaintController::class, 'status']);
+        Route::patch('/complaints/{field}', [AdminComplaintController::class, 'boolean']);
+        Route::delete('/complaints/{id}', [AdminComplaintController::class, 'delete']);
 
         Route::post('/socials', [AdminSocialController::class, 'save']);
         Route::post('/socials/paginate', [AdminSocialController::class, 'paginate']);

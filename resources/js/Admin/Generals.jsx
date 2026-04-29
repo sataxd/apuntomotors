@@ -33,6 +33,8 @@ const Generals = ({ generals }) => {
     supportEmail: generals.find(x => x.correlative == 'support_email')?.description ?? '',
     privacyPolicy: generals.find(x => x.correlative == 'privacy_policy')?.description ?? '',
     termsConditions: generals.find(x => x.correlative == 'terms_conditions')?.description ?? '',
+    returnPolicy: generals.find(x => x.correlative == 'return_policy')?.description ?? '',
+    shippingPolicy: generals.find(x => x.correlative == 'shipping_policy')?.description ?? '',
     seoTitle: generals.find(x => x.correlative == 'seo_title')?.description ?? '',
     seoDescription: generals.find(x => x.correlative == 'seo_description')?.description ?? '',
     seoKeywords: generals.find(x => x.correlative == 'seo_keywords')?.description ?? '',
@@ -120,8 +122,10 @@ const Generals = ({ generals }) => {
         { correlative: 'opening_hours', name: 'Horarios de atención', description: formData.openingHours },
         { correlative: 'support_phone', name: 'Número de soporte', description: formData.supportPhone },
         { correlative: 'support_email', name: 'Correo de soporte', description: formData.supportEmail },
-        { correlative: 'privacy_policy', name: 'Política de privacidad', description: formData.privacyPolicy },
+        { correlative: 'privacy_policy', name: 'Políticas de privacidad', description: formData.privacyPolicy },
         { correlative: 'terms_conditions', name: 'Términos y condiciones', description: formData.termsConditions },
+        { correlative: 'return_policy', name: 'Políticas de cambio y devolución', description: formData.returnPolicy },
+        { correlative: 'shipping_policy', name: 'Políticas de envío', description: formData.shippingPolicy },
         { correlative: 'seo_title', name: 'Titulo - SEO', description: formData.seoTitle },
         { correlative: 'seo_description', name: 'Descripcion - SEO', description: formData.seoDescription },
         { correlative: 'seo_keywords', name: 'Palabras clave - SEO', description: formData.seoKeywords },
@@ -289,10 +293,16 @@ const Generals = ({ generals }) => {
 
           <div className={`tab-pane fade ${activeTab === 'policies' ? 'show active' : ''}`} role="tabpanel">
             <div className="mb-3">
-              <QuillFormGroup label='Política de privacidad' value={formData.privacyPolicy} onChange={(value) => setFormData({ ...formData, privacyPolicy: value })} />
+              <QuillFormGroup label='Políticas de privacidad' value={formData.privacyPolicy} onChange={(value) => setFormData({ ...formData, privacyPolicy: value })} />
             </div>
             <div className="mb-3">
               <QuillFormGroup label='Términos y condiciones' value={formData.termsConditions} onChange={(value) => setFormData({ ...formData, termsConditions: value })} />
+            </div>
+            <div className="mb-3">
+              <QuillFormGroup label='Políticas de envío' value={formData.shippingPolicy} onChange={(value) => setFormData({ ...formData, shippingPolicy: value })} />
+            </div>
+            <div className="mb-3">
+              <QuillFormGroup label='Políticas de cambio y devolución' value={formData.returnPolicy} onChange={(value) => setFormData({ ...formData, returnPolicy: value })} />
             </div>
           </div>
 

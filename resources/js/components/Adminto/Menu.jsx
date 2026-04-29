@@ -128,6 +128,12 @@ const Menu = ({ session, hasRole, salesCount }) => {
                                     Mensajes
                                 </MenuItem>
                                 <MenuItem
+                                    href="/admin/complaints"
+                                    icon="mdi mdi-home"
+                                >
+                                    Reclamos
+                                </MenuItem>
+                                <MenuItem
                                     href="/admin/sales"
                                     icon="mdi mdi-cart-outline"
                                 >

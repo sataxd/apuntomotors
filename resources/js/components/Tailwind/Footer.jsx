@@ -193,13 +193,13 @@ const Footer = () => {
 
                             <nav className="flex flex-col gap-1 2xl:gap-2 4xl:gap-4 mt-3 sm:mt-5">
 
-                                <a onClick={openModal} className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Terminos y Condiciones</a>
+                                <a href="/terminos-y-condiciones" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Términos y Condiciones</a>
 
-                                <a onClick={openModal} className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Politicas de privacidad</a>
+                                <a href="/politicas-de-privacidad" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Políticas de privacidad</a>
 
-                                <a onClick={openModal} className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Politicas de envíos</a>
+                                <a href="/politicas-de-envios" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Políticas de envíos</a>
 
-                                <a onClick={openModal} className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Politicas de cambio y devolución</a>
+                                <a href="/politicas-de-cambio-y-devolucion" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Políticas de cambio y devolución</a>
 
                                 
                             </nav>
@@ -257,7 +257,18 @@ const Footer = () => {
                                     <p className="font-dmsans text-white text-opacity-70 text-sm 2xl:text-base 4xl:text-lg">Email</p>
                                     <a href={`mailto:${mail}`} className="font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">{mail}</a>
                             </div>
-
+                            <div className="flex flex-col gap-1 mt-3 sm:mt-5"> 
+                                <a
+                                    href="/libro-de-reclamaciones"
+                                    aria-label="reclamo"
+                                >
+                                    <img
+                                        src="/assets/img/footer/libro-reclamaciones.png"
+                                        alt="Libro de reclamación"
+                                        className="w-40 h-auto"
+                                    />
+                            </a> 
+                            </div>           
                         </div>
 
                     </div>
