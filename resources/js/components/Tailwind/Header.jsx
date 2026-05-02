@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 import GeneralRest from "../../actions/GeneralRest";
 import { TbBrush } from "react-icons/tb";
-import { Trash2 } from "lucide-react";
+import { Icon, Trash2 } from "lucide-react";
 import Logout from "../../Actions/Logout";
 
 const generalRest = new GeneralRest();
@@ -229,7 +229,7 @@ const Header = ({
                         }`}
                 >
                     <div
-                        className={`px-[5%] w-screen py-5 lg:py-0 flex justify-between items-center text-[#5e5e60]`}
+                        className={`px-[5%] w-screen flex justify-between items-center text-[#5e5e60]`}
                     >
                         <div className="flex flex-row gap-6 justify-between items-center w-full lg:hidden">
                             
@@ -247,22 +247,24 @@ const Header = ({
 
                             <a href="/">
                                 <img
-                                    src="/assets/img/logovitromax.webp"
-                                    alt="WeFem Logo"
-                                    className="h-[40px] object-cover -mt-2"
+                                    src="/assets/img/logoapuntomotor.png"
+                                    alt="Apunto Motor"
+                                    className="h-20 4xl:h-24 object-contain"
                                 />
                             </a>
 
                             <div className="flex flex-row space-x-4 text-2xl items-end justify-end">
-                                {/* {Instagram && (
+                                {Instagram && (
                                     <a
                                         href={Instagram.link}
+                                        aria-label="Instagram"
                                         target="_blank"
-                                        className="flex justify-center items-center"
                                     >
-                                        <i className="fa-brands fa-instagram"></i>
+                                        <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-[#7c231c] rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-instagram text-white text-xl"></icon>                                        
+                                        </div>
                                     </a>
-                                )} */}
+                                )}
 
                                 {Facebook && (
                                     <a
@@ -270,21 +272,24 @@ const Header = ({
                                         aria-label="Facebook"
                                         target="_blank"
                                     >
-                                        <img
-                                            src="/assets/img/footer/facebook_n.png"
-                                            alt="Facebook"
-                                            className="w-[30px] 4xl:w-10"
-                                        />
+                                        <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-[#7c231c] rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-facebook text-white text-xl 4xl:text-2xl"></icon>                                        
+                                        </div>
                                     </a>
                                 )}
                                 
-                                {/* {TikTok && (
-                                    <a href={TikTok.link} target="_blank">
-                                        <i className="fa-brands fa-tiktok"></i>
+                                {TikTok && (
+                                   <a href={TikTok.link}
+                                       target="_blank"
+                                       aria-label="Tik Tok"
+                                       >
+                                        <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-[#7c231c] rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-tiktok text-white text-xl 4xl:text-2xl"></icon>                                        
+                                        </div>
                                     </a>
-                                )} */}
+                                )}
 
-                                <button
+                                {/* <button
                                     onClick={() => {
                                         if (isCartOrCheckout) {
                                             if (currentPath === '/checkout') window.location.href = '/cart';
@@ -305,30 +310,30 @@ const Header = ({
                                     >
                                         {totalProductos}
                                     </span>
-                                </button>
+                                </button> */}
 
                             </div>
                         </div>
                         
-                        <div className="hidden lg:flex lg:flex-row py-5 w-full justify-between items-center font-normal text-base">
+                        <div className="hidden lg:flex lg:flex-row w-full justify-between items-center font-normal text-base">
                             
                             <div className="flex justify-start xl:w-3/12">
                                 <a href="/">
                                     <img
-                                        src="/assets/img/logovitromax.webp"
-                                        alt="La casa del intercomunicador"
-                                        className="h-[43px] 4xl:h-[50px] object-cover -mt-2"
+                                        src="/assets/img/logoapuntomotor.png"
+                                        alt="Apunto Motor"
+                                        className="h-20 4xl:h-24 object-contain"
                                     />
                                 </a>
                             </div>
                             
                             <nav className="flex flex-row justify-center items-center gap-5 xl:gap-8 4xl:gap-10 xl:w-7/12 font-dmsans font-semibold lg:text-lg 2xl:text-xl 4xl:text-[23px] text-center tracking-tight h-full">
                                 <a href="/">Inicio</a>
-                                <div className="relative group h-full flex items-center cursor-pointer">
-                                    <a href="/catalogo" className="flex items-center gap-2 ">
+                                {/* <div className="relative group h-full flex items-center cursor-pointer"> */}
+                                    {/* <a href="/catalogo" className="flex items-center gap-2 ">
                                         Productos
-                                        {/* <i className="fa-solid fa-chevron-down text-[0.6em] transition-transform duration-300 group-hover:rotate-180"></i> */}
-                                    </a>
+                                        <i className="fa-solid fa-chevron-down text-[0.6em] transition-transform duration-300 group-hover:rotate-180"></i>
+                                    </a> */}
                                     {/* <div className="absolute top-[80%] left-0 w-[340px] 4xl:w-[400px] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 z-50 text-left">
                                         <div className="bg-white rounded-[12px] shadow-xl overflow-hidden">
                                             <ul className="flex flex-col">
@@ -345,7 +350,7 @@ const Header = ({
                                             </ul>
                                         </div>
                                     </div> */}
-                                </div>
+                                {/* </div> */}
                                 <a href="/nosotros">Nosotros</a>
                                 <a href="/servicios">Servicios</a>
                                 <a href="/contacto">Contacto</a>
@@ -359,11 +364,9 @@ const Header = ({
                                         aria-label="Instagram"
                                         target="_blank"
                                     >
-                                        <img
-                                            src="/assets/img/footer/instagram_n.png"
-                                            alt="facebook"
-                                            className="w-8 4xl:w-10"
-                                        />
+                                        <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-[#7c231c] rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-instagram text-white text-xl"></icon>                                        
+                                        </div>
                                     </a>
                                 )}
 
@@ -373,11 +376,9 @@ const Header = ({
                                         aria-label="Facebook"
                                         target="_blank"
                                     >
-                                        <img
-                                            src="/assets/img/footer/facebook_n.png"
-                                            alt="Facebook"
-                                            className="w-8 4xl:w-10"
-                                        />
+                                        <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-[#7c231c] rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-facebook text-white text-xl 4xl:text-2xl"></icon>                                        
+                                        </div>
                                     </a>
                                 )}
 
@@ -388,37 +389,33 @@ const Header = ({
                                         aria-label="WhatsApp"
                                         target="_blank"
                                     >
-                                        <img
-                                            src="/assets/img/footer/whatsapp_n.png"
-                                            alt="WhatsApp"
-                                            className="w-8 4xl:w-10"
-                                        />
+                                        <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-[#7c231c] rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-whatsapp text-white text-xl 4xl:text-2xl"></icon>                                        
+                                        </div>
                                     </a>
                                 )}
 
                                 {TikTok && (
                                     <a href={TikTok.link}
                                        target="_blank"
-                                       aria-label="Tik Tok">
-                                        <img
-                                            src="/assets/img/footer/tiktok_n.png"
-                                            alt="WhatsApp"
-                                            className="w-8 4xl:w-10"
-                                        />
+                                       aria-label="Tik Tok"
+                                       >
+                                        <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-[#7c231c] rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-tiktok text-white text-xl 4xl:text-2xl"></icon>                                        
+                                        </div>
                                     </a>
                                 )}
 
-                                {session && session.name ? (
+                                {/* {session && session.name ? (
                                     <div className="relative group h-full flex items-center cursor-pointer">
                                         <a className="relative cursor-pointer transition-transform hover:scale-110">
-                                            <img src="/assets/img/acceso_n.png" className="w-7 object-bottom" />
+                                            <icon className="fa-solid fa-user text-[#7c231c] text-2xl 4xl:text-3xl"></icon>
                                         </a>
                                         
-                                        {/* Puente de padding (pt-6) igual que en productos para no perder el hover */}
                                         <div className="absolute right-0 top-[80%] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 z-50 text-left w-56">
                                             
                                             <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 text-base font-dmsans relative">
-                                                {/* Triangulito decorativo */}
+                                               
                                                 <div className="absolute -top-1 right-2 w-4 h-4 bg-white rotate-45 border-l border-t border-gray-100 z-0"></div>
                                                 
                                                 <div className="px-5 py-2 border-b border-gray-100 bg-white relative z-10">
@@ -443,11 +440,11 @@ const Header = ({
                                     </div>
                                 ) : (
                                     <a href="/login" className="relative cursor-pointer transition-transform hover:scale-110" title="Iniciar Sesión">
-                                        <img src="/assets/img/acceso_n.png" className="w-7 -mt-1" />
+                                        <icon className="fa-solid fa-user text-[#7c231c] text-2xl 4xl:text-3xl"></icon>
                                     </a>
-                                )}
+                                )} */}
 
-                                <button
+                                {/* <button
                                     onClick={() => {
                                         if (isCartOrCheckout) {
                                             if (currentPath === '/checkout') window.location.href = '/cart';
@@ -457,7 +454,7 @@ const Header = ({
                                     }}
                                     className="relative"
                                 >
-                                    <img src="/assets/img/carrito_n.png" className="w-[30px] -mt-1" />
+                                    <icon className="fa-solid fa-shopping-cart text-[#7c231c] text-2xl 4xl:text-3xl"></icon>
                                     <span
                                         className={`absolute -top-1 -right-1 bg-gray-600 text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-medium transition-transform ${animar ? "scale-150" : "scale-100"
                                             }`}
@@ -468,7 +465,7 @@ const Header = ({
                                     >
                                         {totalProductos}
                                     </span>
-                                </button>
+                                </button> */}
 
                             </div>
 

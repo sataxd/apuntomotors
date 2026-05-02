@@ -104,7 +104,7 @@ const Footer = () => {
 
     return (
         <>
-            <footer className="bg-[#ff9003] text-white">
+            <footer className="bg-[#131e2e] text-white">
                 <div className="px-[5%] py-10 lg:py-12">
                     
                     <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 lg:gap-8">
@@ -197,10 +197,21 @@ const Footer = () => {
 
                                 <a href="/politicas-de-privacidad" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Políticas de privacidad</a>
 
-                                <a href="/politicas-de-envios" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Políticas de envíos</a>
+                                {/* <a href="/politicas-de-envios" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Políticas de envíos</a> */}
 
-                                <a href="/politicas-de-cambio-y-devolucion" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Políticas de cambio y devolución</a>
-
+                                {/* <a href="/politicas-de-cambio-y-devolucion" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Políticas de cambio y devolución</a> */}
+                                <div className="flex flex-col gap-1 mt-3"> 
+                                    <a
+                                        href="/libro-de-reclamaciones"
+                                        aria-label="reclamo"
+                                    >
+                                        <img
+                                            src="/assets/img/footer/libro-reclamaciones.png"
+                                            alt="Libro de reclamación"
+                                            className="w-40 h-auto"
+                                        />
+                                    </a> 
+                                </div>                    
                                 
                             </nav>
                         </div>
@@ -216,11 +227,9 @@ const Footer = () => {
                                         aria-label="Instagram"
                                         target="_blank"
                                     >
-                                        <img
-                                            src="/assets/img/footer/instagram.png"
-                                            alt="facebook"
-                                            className="w-8 4xl:w-10"
-                                        />
+                                         <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-white rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-instagram text-[#131e2e] text-2xl 4xl:text-2xl"></icon>                                        
+                                        </div>
                                     </a>
                                 )}
 
@@ -230,11 +239,9 @@ const Footer = () => {
                                         aria-label="Facebook"
                                         target="_blank"
                                     >
-                                        <img
-                                            src="/assets/img/footer/facebook.png"
-                                            alt="Facebook"
-                                            className="w-8 4xl:w-10"
-                                        />
+                                        <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-white rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-facebook text-[#131e2e] text-2xl 4xl:text-2xl"></icon>                                        
+                                        </div>
                                     </a>
                                 )}
 
@@ -244,11 +251,9 @@ const Footer = () => {
                                         aria-label="WhatsApp"
                                         target="_blank"
                                     >
-                                        <img
-                                            src="/assets/img/footer/whatsapp.png"
-                                            alt="WhatsApp"
-                                            className="w-8 4xl:w-10"
-                                        />
+                                         <div className="w-9 4xl:w-10 h-full aspect-square p-2 bg-white rounded-full flex justify-center items-center">
+                                            <icon className="fa-brands fa-whatsapp text-[#131e2e] text-2xl 4xl:text-2xl"></icon>                                        
+                                        </div>
                                     </a>
                                 )}
                             </div>
@@ -257,18 +262,7 @@ const Footer = () => {
                                     <p className="font-dmsans text-white text-opacity-70 text-sm 2xl:text-base 4xl:text-lg">Email</p>
                                     <a href={`mailto:${mail}`} className="font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">{mail}</a>
                             </div>
-                            <div className="flex flex-col gap-1 mt-3 sm:mt-5"> 
-                                <a
-                                    href="/libro-de-reclamaciones"
-                                    aria-label="reclamo"
-                                >
-                                    <img
-                                        src="/assets/img/footer/libro-reclamaciones.png"
-                                        alt="Libro de reclamación"
-                                        className="w-40 h-auto"
-                                    />
-                            </a> 
-                            </div>           
+                                  
                         </div>
 
                     </div>
