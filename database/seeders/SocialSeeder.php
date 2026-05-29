@@ -15,22 +15,22 @@ class SocialSeeder extends Seeder
     {
         $socials = [
             [
-                'name' => 'Vitromaxx',
+                'name' => 'Apunto Motors',
                 'description' => 'Instagram',
                 'icon' => 'fab fa-instagram',
-                'link' => 'https://www.instagram.com/vitromaxxperuoficial/'
+                'link' => 'https://www.instagram.com/apuntomotors/'
             ],
             [
-                'name' => 'Vitromaxx',
+                'name' => 'Apunto Motors',
                 'description' => 'Facebook',
                 'icon' => 'fab fa-facebook-f',
-                'link' => 'https://www.facebook.com/envasesvitromax'
+                'link' => 'https://web.facebook.com/profile.php?id=61573249179061'
             ],
             [
-                'name' => 'Vitromaxx',
+                'name' => 'Apunto Motors',
                 'description' => 'WhatsApp',
                 'icon' => 'fab fa-whatsapp',
-                'link' => 'https://api.whatsapp.com/send?phone=+51991542541&text=' . urlencode('¡Hola! Quisiera que me informe sobre los producto de Vitromaxx.')
+                'link' => 'https://api.whatsapp.com/send?phone=+51923508259&text=%C2%A1Hola%21+Quisiera+que+me+informe+sobre+los+servicios+de+Apunto Motors.'
             ],
         ];
 

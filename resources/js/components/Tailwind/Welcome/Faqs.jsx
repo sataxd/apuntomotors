@@ -11,7 +11,7 @@ const Faqs = ({ tieneMargen = false, faqs }) => {
         <section className={`relative w-full px-[5%] 4xl:px-[8%] gap-10 4xl:gap-16 flex flex-col items-center py-10 xl:py-16 ${bgVariable}`}>
 
             <div className="w-full flex flex-col gap-2 justify-center items-center">
-                <h3 className="font-sora text-[#ff9003] text-3xl sm:text-4xl 2xl:text-4xl 4xl:text-5xl font-semibold tracking-tight !leading-tight mb-3 text-center">
+                <h3 className="font-sora text-[#131e2e] text-3xl sm:text-4xl 2xl:text-4xl 4xl:text-5xl font-semibold tracking-tight !leading-tight mb-3 text-center">
                     Asistencia al Cliente
                 </h3>
             </div>

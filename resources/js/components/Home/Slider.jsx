@@ -75,7 +75,7 @@ const AnimatedButton = ({ text, link, isActive, delay = 0.5 }) => {
     >
       <a
         href={link}
-        className="group relative overflow-hidden bg-transparent hover:bg-white hover:text-black transition-all duration-300 font-dmsans border-[2px] border-white flex flex-row items-center px-3 md:px-6 py-2 text-base xl:text-lg 4xl:text-xl rounded-xl font-medium text-white"
+        className="group relative overflow-hidden bg-white text-black transition-all duration-300 font-dmsans border-[2px] border-white flex flex-row items-center px-3 md:px-6 py-2 text-base xl:text-lg 4xl:text-xl rounded-xl font-medium"
       >
         <span className="relative z-10">{text}</span>
       </a>

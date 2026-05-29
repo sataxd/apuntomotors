@@ -14,10 +14,12 @@ class Services extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
+        'slug',
         'name',
         'description',
         'image',
         'visible',
+        'featured',
         'status',
     ];
 }

@@ -14,26 +14,19 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         User::updateOrCreate([
-            'email' => 'admin@vitromaxx.com'
+            'email' => 'admin@apuntomotors.com'
         ], [
             'name' => 'Usuario',
             'lastname' => 'Admin',
             'password' => 'r00tme'
         ])->assignRole('Admin');
+       
         User::updateOrCreate([
-            'email' => 'admin@vitromaxx.com'
-        ], [
-            'name' => 'Admin',
-            'lastname' => 'WeFem',
-            'password' => 'wefem0001'
-        ])->assignRole('Admin');
-
-        User::updateOrCreate([
-            'email' => 'customer@mundoweb.pe'
+            'email' => 'customer@apuntomotors.com'
         ], [
             'name' => 'Usuario',
             'lastname' => 'Customer',
-            'password' => 'abcd1234'
+            'password' => '123456789'
         ])->assignRole('Customer');
     }
 }

@@ -54,7 +54,7 @@ const ContactSection = ({tieneMargen = false}) => {
     return (
 
         <div className="relative overflow-hidden">
-            <div className={`relative w-full px-[5%] 4xl:px-[8%] gap-10 xl:gap-16 flex flex-col items-center py-10 xl:py-16 bg-[#0b0b0b] ${bgVariable}`}>
+            <div className={`relative w-full px-[5%] 4xl:px-[8%] gap-10 xl:gap-16 flex flex-col items-center py-10 xl:py-16 bg-[#131e2e] ${bgVariable}`}>
 
                     <div className="flex flex-col lg:flex-row gap-10 xl:gap-16 2xl:gap-20 w-full items-center justify-center">
                         <div className="w-full xl:w-1/2 flex flex-col gap-2 justify-center items-start">

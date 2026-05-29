@@ -63,6 +63,7 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\PopupController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\ReturnPoliticsController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ShippingPoliticsController;
 use App\Http\Controllers\SupplyController;
@@ -92,7 +93,8 @@ Route::get('/catalogo/{category_slug}', [CatalogController::class, 'reactView'])
 Route::get('/catalogo/{category_slug}/{subcategory_slug}', [CatalogController::class, 'reactView'])->name('CatalogProducts.jsx');
 Route::get('/producto/{category_slug}/{subcategory_slug}/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
 Route::get('/producto/{category_slug}/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
-Route::get('/servicios', [ServicesController::class, 'reactView'])->name('Services.jsx');
+Route::get('/servicios', [ServiceController::class, 'reactView'])->name('ServicesAll.jsx');
+Route::get('/servicios/{slug}', [ServicesController::class, 'reactView'])->name('Services.jsx');
 // Route::get('/producto/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
 Route::get('/terminos-y-condiciones', [TermsController::class, 'reactView'])->name('Terms.jsx');
 Route::get('/politicas-de-privacidad', [PrivacyController::class, 'reactView'])->name('Privacy.jsx');

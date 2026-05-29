@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, useCallback } from "react";
 
 export const LoadingContext = createContext();
-import LogoImage from "../../../../public/assets/img/logovitromax.webp";
+import LogoImage from "../../../../public/assets/img/logoapuntomotor.png";
 
 const Preloader = ({ progress }) => {
     return (
@@ -29,7 +29,7 @@ const Preloader = ({ progress }) => {
             
             <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
                 <div 
-                    className="h-full bg-[#ff9003] transition-all duration-300 ease-out"
+                    className="h-full bg-[#7c231c] transition-all duration-300 ease-out"
                     style={{ width: `${progress}%` }}
                 ></div>
             </div>

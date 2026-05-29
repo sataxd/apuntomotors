@@ -15,28 +15,28 @@ class FaqSeeder extends Seeder
     {
         $faqs = [
             [
-                'name' => '¿Qué tipo de productos ofrecen?',
-                'description' => 'Ofrecemos una amplia gama de envases de vidrio para la industria de alimentos y bebidas. Nuestro catálogo incluye frascos para conservas, botellas para vinos y licores (desde miniaturas de 50 ml hasta formatos de 750 ml), botellas novedosas (como los modelos Huaco, Orangután y Cráneo), damajuanas, vasos, copas y accesorios.'
+                'name' => '¿Qué tipo de servicios automotrices ofrecen?',
+                'description' => 'Ofrecemos soluciones automotrices integrales y servicios de mantenimiento multimarca. Nuestros principales servicios incluyen el mantenimiento preventivo y correctivo, la inspección y reparación de frenos y suspensión, y el diagnóstico electrónico de alta precisión. Además, contamos con la capacidad operativa para atender tanto a conductores particulares como a grandes flotas vehiculares empresariales.'
             ],
             [
-                'name' => '¿Venden por unidad o solo al por mayor?',
-                'description' => 'Atendemos principalmente requerimientos al por mayor para emprendedores y empresas; por ello, la venta de nuestros envases se realiza por caja cerrada. La cantidad de unidades exactas por caja varía dependiendo del modelo y tamaño del producto.'
+                'name' => '¿Atienden a todas las marcas y modelos de vehículos?',
+                'description' => 'Sí, en Apunto Motors somos un taller mecánico multimarca líder en Lima. Nuestro equipo técnico está altamente capacitado y cuenta con una amplia experiencia comprobada en el cuidado y mantenimiento preventivo y correctivo de diversas marcas y modelos. Para ello, estamos equipados con escáneres multimarca de última generación.'
             ],
             [
-                'name' => '¿Realizan servicios de personalización para los envases?',
-                'description' => '¡Sí! Brindamos servicios de personalización para darle identidad a tu marca. Contamos con servicio de serigrafía y venta de envases con acabado pavonado. Además, ofrecemos el servicio de grabado para tapas rosca, tapones y cápsulas (la venta de complementos grabados se realiza solo por millar). Puedes comunicarte directamente al +51 991 542 541 para cotizar la personalización de tu proyecto.'
+                'name' => '¿Cómo garantizan la transparencia en los precios y diagnósticos?',
+                'description' => 'Nuestra propuesta de valor se centra en brindarte un diagnóstico preciso, transparente y honesto. Para tu tranquilidad, te mostramos el diagnóstico real de tu auto mediante fotos y videos antes de iniciar cualquier reparación. Te entregamos un presupuesto detallado, sin costos ocultos de última hora, y realizamos cambios únicamente en las piezas donde realmente se necesita.'
             ],
             [
-                'name' => '¿Los frascos y botellas incluyen sus respectivas tapas?',
-                'description' => 'Varios de nuestros productos, como ciertos modelos de frascos, miniaturas y promociones específicas, incluyen la tapa, tapón o cápsula dentro del precio indicado. Para otros modelos, las tapas o corchos se adquieren por separado según las necesidades de tu producto.'
+                'name' => '¿Utilizan repuestos originales en sus reparaciones?',
+                'description' => 'Absolutamente. Nuestro compromiso de calidad incluye el uso irrestricto de repuestos originales de alta calidad. Maximizamos el rendimiento de tu vehículo utilizando repuestos y tecnología avanzada para asegurar la durabilidad de tu inversión y superar tus expectativas.'
             ],
-              [
-                'name' => '¿Tienen envases específicos para licores de alta gama o artesanales?',
-                'description' => 'Sí, contamos con una línea exclusiva de Botellas Premium fabricadas con vidrio Extra Flint, que ofrecen una transparencia cristalina y un brillo superior. Esta línea es ideal para licores finos, piscos artesanales y destilados de exportación. Para procesos de fermentación y macerados artesanales, también contamos con damajuanas de vidrio de hasta 4 litros.'
+            [
+                'name' => '¿Ofrecen alguna garantía por los servicios mecánicos realizados?',
+                'description' => 'Sí, brindamos un 100% de garantía de satisfacción en todos nuestros diagnósticos y reparaciones. Cada mantenimiento, ya sea correctivo o preventivo, cuenta con un respaldo técnico total y se ejecuta bajo estrictos protocolos de seguridad y profesionalismo para devolverte una total seguridad al volante.'
             ],
-              [
-                'name' => '¿Cómo puedo realizar un pedido o comunicarme con un asesor?',
-                'description' => 'Puedes realizar tus pedidos o solicitar asesoría a través de nuestros canales de atención telefónica y WhatsApp: 964 223 943, 967 602 801 o 991 542 541. También puedes escribirnos al correo ventas@vitromaxxperu.com o visitarnos en nuestra tienda ubicada en la Calle San Germán MZ A LT 16 A, San Martín de Porres (Referencia: Tottus de la Av. Central).'
+            [
+                'name' => '¿Es necesario agendar una cita previa para llevar mi vehículo?',
+                'description' => 'Sí, recomendamos agendar tu cita mecánica con anticipación para poder brindarte una atención personalizada y eficiente. Diseñamos un flujo de trabajo optimizado y cumplimos con plazos de entrega estrictos, porque sabemos lo importante que es tu movilidad y no queremos que pases días sin tu auto.'
             ],
         ];
 

@@ -94,6 +94,12 @@ const Services = () => {
     $(gridRef.current).dxDataGrid('instance').refresh()
   }
 
+  const onFeaturedChange = async ({ id, value }) => {
+    const result = await servicesRest.boolean({ id, field: 'featured', value })
+    if (!result) return
+    $(gridRef.current).dxDataGrid('instance').refresh()
+  }
+
   return (<>
     <Table gridRef={gridRef} title='Servicios' rest={servicesRest}
       toolBar={(container) => {
@@ -145,7 +151,27 @@ const Services = () => {
                   />
               );
           },
-          },
+        },
+        {
+            dataField: "featured",
+            caption: "Destacado",
+            dataType: "boolean",
+            width: "80px",
+            cellTemplate: (container, { data }) => {
+                ReactAppend(
+                    container,
+                    <SwitchFormGroup
+                        checked={data.featured == 1}
+                        onChange={(e) =>
+                            onFeaturedChange({
+                                id: data.id,
+                                value: e.target.checked,
+                            })
+                        }
+                    />
+                );
+            },
+        },
         {
           dataField: 'visible',
           caption: 'Visible',

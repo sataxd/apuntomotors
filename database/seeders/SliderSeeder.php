@@ -14,18 +14,20 @@ class SliderSeeder extends Seeder
     {
         $sliders = [
             [
-                'name' => 'La calidad es nuestra mejor garantía',
-                'description' => 'En Vitromaxx cada producto, cada acto, de atención y servicio obedece a un criterio de perfección, compartido por más de 28 años, comprometiendo el verdadero significado del servicio al cliente.',
-                'image' => '18a7a887-4208-4327-b612-f079bb09f10a.webp',
-                'button_text' => 'Ver productos',
-                'button_link' => '/catalogo',
+                'name' => 'Frenos y Mecánica Integral: Tu Seguridad en Buenas Manos',
+                'description' => 'Mantenimiento preventivo con tecnología avanzada para que conduzcas sin preocupaciones. ¡Agenda tu diagnóstico hoy mismo en Apunto Motors!',
+                'image' => 'c3f42224-83ba-4306-a41c-3a246d0386a0.webp',
+                'button_text' => 'Ver servicios',
+                'button_link' => '/servicios',
+                'esimagen' => 1,
             ],
             [
-                'name' => 'Nueva Promo Wiskera',
-                'description' => 'Llévate esta promo por caja de 50 un de botella wiskera.',
-                'image' => '43ed2098-0cea-4025-8c48-97cf23f0e2bc.webp',
-                'button_text' => '',
-                'button_link' => '',
+                'name' => 'Transparencia y Confianza en Cada Revisión Vehicular',
+                'description' => 'Expertos en cambio de aceite y chequeos preventivos. Te brindamos soluciones honestas y repuestos originales para proteger tu inversión.',
+                'image' => '2038336c-579c-4284-911d-c5a17a6a7dd3.webp',
+                'button_text' => null,
+                'button_link' => null,
+                'esimagen' => 1,
             ],
         ];
 

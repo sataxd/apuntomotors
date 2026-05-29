@@ -11,6 +11,7 @@ use App\Models\Indicator;
 use App\Models\InstagramPost;
 use App\Models\Item;
 use App\Models\Post;
+use App\Models\Services;
 use App\Models\Slider;
 use App\Models\Strength;
 use App\Models\Supply;
@@ -32,6 +33,7 @@ class HomeController extends BasicController
         $brands = CoreValue::where('status', true)->where('visible', true)->get();
         $strengthout = Strength::where('status', true)->where('visible', true)->where('description', 'out')->get();
         $strengthin = Strength::where('status', true)->where('visible', true)->where('description', 'in')->get();
+        $services = Services::where('status', true)->where('visible', true)->where('featured', true)->get();
         $clientes = InstagramPost::where('status', true)->where('visible', true)->get();
         $indicadores = Indicator::where('status', true)->where('visible', true)->get();
         $dataAbout = Aboutus::all();
@@ -56,6 +58,7 @@ class HomeController extends BasicController
             'indicadores' => $indicadores,
             'dataAbout' => $dataAbout,
             'dataGeneral' => $dataGeneral,
+            'services' => $services,
         ];
     }
 }

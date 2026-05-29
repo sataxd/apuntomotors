@@ -61,7 +61,7 @@ const LoginContent = () => {
             email: jsEncrypt.encrypt(email),
             password: jsEncrypt.encrypt(password),
         };
-        
+      
         const result = await AuthRest.login(request);
 
         if (!result) return setLoading(false);

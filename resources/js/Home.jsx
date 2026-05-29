@@ -20,6 +20,7 @@ import Marcas from "./components/Tailwind/Welcome/Marcas";
 import Customer from "./components/Tailwind/Welcome/Customer";
 import ContactSection from "./components/Tailwind/Welcome/ContactSection";
 import SectoresClientes from "./components/Tailwind/Welcome/SectoresClientes.jsx";
+import ServicesHome from "./components/Tailwind/Welcome/ServicesHome.jsx";
 
 
 const Home = ({
@@ -36,6 +37,7 @@ const Home = ({
     popups,
     showSlogan = true,
     posts,
+    services,
 }) => {
     
     return (
@@ -45,7 +47,7 @@ const Home = ({
 
             <Slider items={sliders} />
           
-            <CategoriesSection category={category} dataAbout={dataAbout} />
+            <ServicesHome dataAbout={dataAbout} services={services} is_home={true} />
 
             <ServiceTecnical dataAbout={dataAbout} />
 

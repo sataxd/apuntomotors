@@ -116,7 +116,7 @@ const Footer = () => {
                                 <img
                                     src="/assets/img/logofooter.webp"
                                     alt="WeFem Logo"
-                                    className="h-28 4xl:h-32 object-cover -mt-2"
+                                    className="h-24 4xl:h-28 object-cover -mt-2"
                                 />
                             </a>
 
@@ -125,7 +125,7 @@ const Footer = () => {
                             </div>
                             
                             <div className="flex flex-row gap-5 max-w-md">
-                                <div  className="flex flex-col gap-1">
+                                {/* <div  className="flex flex-col gap-1">
                                         <p className="font-dmsans text-white text-opacity-70 text-sm 2xl:text-base 4xl:text-lg">
                                             Teléfono fijo
                                         </p>
@@ -134,8 +134,6 @@ const Footer = () => {
                                             {telefonosArray.map((telefono, index) => {
                                                 const telMostrado = telefono.trim();
                                                 const telEnlace = telMostrado.replace(/\s+/g, '');
-                                                
-                                                // Evaluamos si NO es el último elemento del array
                                                 const isLast = index === telefonosArray.length - 1;
 
                                                 return (
@@ -146,7 +144,6 @@ const Footer = () => {
                                                         >
                                                             {telMostrado}
                                                         </a>
-                                                        {/* Renderizamos el guion solo si no es el último número */}
                                                         {!isLast && (
                                                             <span className="font-dmsans text-white text-opacity-70 text-sm 2xl:text-base 4xl:text-lg">
                                                                 -
@@ -156,7 +153,7 @@ const Footer = () => {
                                                 );
                                             })}
                                         </div>
-                                </div>
+                                </div> */}
 
                                 <div className="flex flex-col gap-1">
                                     <p className="font-dmsans text-white text-opacity-70 text-sm 2xl:text-base 4xl:text-lg">Teléfono móvil</p>
@@ -175,8 +172,6 @@ const Footer = () => {
                             <nav className="flex flex-col gap-1 2xl:gap-2 4xl:gap-4 mt-3 sm:mt-5">
                                 
                                 <a href="/" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Inicio</a>
-                                
-                                <a href="/catalogo" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Productos</a>
                                 
                                 <a href="/nosotros" className="cursor-pointer hover:opacity-80 transition-opacity font-dmsans text-white text-sm 2xl:text-base 4xl:text-lg">Nosotros</a>
 
@@ -272,7 +267,7 @@ const Footer = () => {
                 <div className="border-t border-white border-opacity-20 mx-[5%] py-5">
                     <div className="flex items-center justify-start">
                         <p className="text-center font-dmsans text-white text-opacity-70 text-[15px] 4xl:text-lg">
-                            Copyright © {new Date().getFullYear()} Vitromaxx | Todos los derechos
+                            Copyright © {new Date().getFullYear()} Apunto Motors | Todos los derechos
                             reservados
                         </p>
                     </div>

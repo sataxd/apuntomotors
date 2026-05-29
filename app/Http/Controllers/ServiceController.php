@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aboutus;
 use App\Models\General;
+use App\Models\Services;
 use Illuminate\Http\Request;
 
 class ServiceController extends BasicController
 {
-    public $reactView = 'Services';
+    public $reactView = 'ServicesAll';
     public $reactRootView = 'public';
 
     public function setReactViewProperties(Request $request)
     {
-        $generals = General::all();
+        $servicios = Services::where('status', true)->where('visible', true)->orderBy('created_at', 'asc')->get();
+        $dataAbout = Aboutus::all();
+        
         return [
-            'generals' => $generals
+            'services' => $servicios,
+            'aboutus' => $dataAbout
         ];
     }
 }

@@ -124,7 +124,7 @@ const NavBar = ({ session = {}, title = "Pagina", whatsappStatus }) => {
                         <img src="/assets/img/favicon.png" alt="" height="22" />
                     </span>
                     <span className="logo-lg">
-                        <img src="/assets/img/logo_white.webp" alt="" height="36" />
+                        <img src="/assets/img/logofooter.webp" alt="" height="60" />
                     </span>
                 </a>
                 <a href="/admin/messages" className="logo logo-dark text-center">
@@ -132,7 +132,7 @@ const NavBar = ({ session = {}, title = "Pagina", whatsappStatus }) => {
                         <img src="/assets/img/favicon.png" alt="" height="22" />
                     </span>
                     <span className="logo-lg">
-                        <img src="/assets/img/logo_white.webp" alt="" height="16" />
+                        <img src="/assets/img/logofooter.webp" alt="" height="60" />
                     </span>
                 </a>
             </div>

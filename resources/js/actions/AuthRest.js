@@ -3,7 +3,7 @@ import { Fetch, Notify } from "sode-extend-react"
 class AuthRest {
   static login = async (request) => {
     try {
-
+     
       const { status, result } = await Fetch('./api/login', {
         method: 'POST',
         body: JSON.stringify(request)

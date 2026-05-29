@@ -52,20 +52,30 @@ const About = () => {
     }
 
     if (imageRef.current) {
-        imageRef.current.value = ""; 
+        imageRef.current.value = ""; // Limpia el input file
+        
         if (data?.image) {
-            if(imageRef.image) imageRef.image.src = `/api/aboutus/media/${data?.image}`;
+            // Evaluamos si el nombre del archivo termina en extensión de video
+            const isVideoFile = /\.(mp4|webm|ogg|mov)$/i.test(data.image);
+            const url = `/api/aboutus/media/${data.image}`;
+            
+            // Usamos el nuevo método controlado
+            if (imageRef.setMedia) imageRef.setMedia(url, isVideoFile);
         } else {
-            if(imageRef.image) imageRef.image.src = "/api/cover/thumbnail/null"; 
+            if (imageRef.clear) imageRef.clear();
         }
     }
 
     if (iconRef.current) {
-        iconRef.current.value = ""; 
+        iconRef.current.value = ""; // Limpia el input file
+        
         if (data?.icon) {
-            if(iconRef.image) iconRef.image.src = `/api/aboutus/media/${data?.icon}`;
+            const isVideoIcon = /\.(mp4|webm|ogg|mov)$/i.test(data.icon);
+            const url = `/api/aboutus/media/${data.icon}`;
+            
+            if (iconRef.setMedia) iconRef.setMedia(url, isVideoIcon);
         } else {
-            if(iconRef.image) iconRef.image.src = "/api/cover/thumbnail/null"; 
+            if (iconRef.clear) iconRef.clear();
         }
     }
 

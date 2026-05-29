@@ -131,9 +131,10 @@ class AuthController extends Controller
   public function login(Request $request): HttpResponse | ResponseFactory | RedirectResponse
   {
     $response = Response::simpleTryCatch(function (Response $response) use ($request) {
+     
       $email = Controller::decode($request->email);
       $password = Controller::decode($request->password);
-
+          
       $userJpa = User::where('email', $email)->first();
       if (!$userJpa) throw new Exception('Este usuario que no existe');
       if ($userJpa->status == null) throw new Exception('Este usuario se encuentra baneado del sistema');

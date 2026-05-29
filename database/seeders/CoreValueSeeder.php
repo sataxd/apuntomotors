@@ -14,28 +14,28 @@ class CoreValueSeeder extends Seeder
     {
         $coreValues = [
             [
-                'name' => 'Atención Personalizada',
+                'name' => 'Asesoría Técnica',
                 'description' => null,
                 'image' => 'c85bfae0-c7ea-483e-ac86-edcda4cb5f25.png',
                 'visible' => 1,
                 'status' => 1,
             ],
             [
-                'name' => 'Agilidad en Despacho',
+                'name' => 'Eficiencia y Rapidez',
                 'description' => null,
-                'image' => '5310ce23-5fef-48ba-8af1-977035aac98f.png',
+                'image' => '52ed9edb-a856-4341-925b-6a0cb27d84f1.png',
                 'visible' => 1,
                 'status' => 1,
             ],
             [
-                'name' => 'Precios Competitivos',
+                'name' => 'Precios Accesibles',
                 'description' => null,
                 'image' => 'f4177184-3b49-41a8-84de-707eec12bc07.png',
                 'visible' => 1,
                 'status' => 1,
             ],
             [
-                'name' => 'Productos de Calidad',
+                'name' => 'Servicio de Calidad',
                 'description' => null,
                 'image' => 'a23e1580-e75f-4547-a103-46a043035f5d.png',
                 'visible' => 1,

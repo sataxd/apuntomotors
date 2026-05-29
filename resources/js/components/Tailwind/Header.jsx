@@ -236,7 +236,7 @@ const Header = ({
                             <button
                                 ref={btnToggleRef}
                                 onClick={toggleMenu}
-                                className="text-[#ff9003] menu-toggle"
+                                className="text-[#7c231c] menu-toggle"
                                 aria-label="Toggle menu"
                             >
                                 <i
@@ -499,7 +499,7 @@ const Header = ({
                         isOpen 
                             ? "translate-x-0 opacity-100" 
                             : "-translate-x-full opacity-0 pointer-events-none"
-                    } top-[70px]`}
+                    } top-[85px]`}
                 >
                     {/* Overlay */}
                     <div 
@@ -519,7 +519,7 @@ const Header = ({
                             </li>
 
                             {/* Productos con Desplegable */}
-                            <li className="border-b border-white/10">
+                            {/* <li className="border-b border-white/10">
                                 <button 
                                     onClick={() => setShowMobileSubMenu(!showMobileSubMenu)}
                                     className="w-full flex justify-between items-center px-8 py-5 hover:bg-white/5 transition-colors"
@@ -528,7 +528,6 @@ const Header = ({
                                     <i className={`fa-solid fa-chevron-down text-base transition-transform duration-300 ${showMobileSubMenu ? 'rotate-180' : ''}`}></i>
                                 </button>
                                 
-                                {/* Contenedor del Submenú Animado */}
                                 <div className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#141414] ${showMobileSubMenu ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
                                     <ul className="flex flex-col border-l-2 border-red-600 ml-4">
                                         {subMenuProductos.map((item, index) => (
@@ -543,7 +542,7 @@ const Header = ({
                                         ))}
                                     </ul>
                                 </div>
-                            </li>
+                            </li> */}
 
                             {/* Servicio Técnico */}
                             <li className="border-b border-white/10">
@@ -565,7 +564,7 @@ const Header = ({
                                 </a>
                             </li>
 
-                            {session && session.name ? (
+                            {/* {session && session.name ? (
                                 <li className="border-b border-white/10">
                                     <button 
                                         onClick={() => setShowMobileUserMenu(!showMobileUserMenu)}
@@ -604,7 +603,7 @@ const Header = ({
                                         <img src="/assets/img/acceso_n.png" className="w-7 -mt-1" /> Iniciar Sesión
                                     </a>
                                 </li>
-                            )}
+                            )} */}
 
                         </ul>
 

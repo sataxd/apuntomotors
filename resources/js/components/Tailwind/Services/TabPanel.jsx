@@ -125,79 +125,21 @@ const TabPanel = ( {servicios} ) => {
   return (
     <section className="relative overflow-hidden mt-[70px]">
       <div className="relative w-full px-[5%] 4xl:px-[8%] gap-10 xl:gap-16 flex flex-col items-center py-10 xl:py-16">
-          
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 w-full items-start justify-center">
-
-            <div className="w-full xl:w-2/5 flex flex-col gap-4">
-              
-              <div className='flex flex-col gap-2 justify-center items-start'>
-                <h3 className="font-sora text-[#ff9003] text-3xl sm:text-4xl 2xl:text-4xl 4xl:text-5xl font-semibold tracking-tight !leading-tight mb-3">
-                    {sixteenSection?.name}
-                </h3>
-                <HtmlContent
-                    className="font-dmsans text-[#5e5e60] text-base 2xl:text-lg 4xl:text-xl font-light"
-                    html={sixteenSection?.description}
-                />
-              </div>
-
-              <div className='flex flex-col w-full'>
-                {/* AQUI AGREGAMOS EL INDEX */}
-                {servicios.map((service, index) => (
-                  <button
-                    key={service.id}
-                    onClick={() => setActiveTab(service)}
-                    className={`flex items-center gap-3 py-4 sm:py-6 max-w-md border-b border-gray-200 transition-all duration-300 group text-left ${
-                    activeTab.id === service.id ? 'opacity-100' : 'opacity-60 hover:opacity-70'
-                  }`}
-                  >
-                    {/* CAMBIO: Generación automática del número */}
-                    <span className={`font-sora font-bold ${
-                        activeTab.id === service.id ? 'text-[#5e5e60] text-xl' : 'text-[#5e5e60] text-base'
-                      }`}>
-                        {(index + 1).toString().padStart(2, '0')}
-                    </span>
-
-                    <h2 className={`font-sora transition-all duration-300 font-medium tracking-tight !leading-tight ${
-                        activeTab.id === service.id 
-                          ? 'text-xl sm:text-2xl 4xl:text-3xl font-semibold text-[#5e5e60]' 
-                          : 'text-base sm:text-lg  4xl:text-2xl text-[#5e5e60]'
-                        }`}>
-                        {service.name}
-                    </h2>
-                  </button>
-                ))}
-              </div>
-            </div>
-
             
-            <div className="w-full xl:w-3/5 flex flex-col justify-start items-start">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab.id}
-                  className="w-full flex flex-col gap-5"
-                >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={servicios.id}
+            className="flex flex-col lg:flex-row gap-10 lg:gap-16 w-full justify-center"
+          >
 
-                  <div className="relative w-full h-[250px] sm:h-[450px] 4xl:h-[600px] overflow-hidden rounded-2xl bg-gray-100">
-                    <motion.img 
-                      variants={jumpImageVariants}
-                      initial="initial"
-                      animate="animate"
-                      exit="exit"
-                      src={`/api/services/media/${activeTab.image}`}
-                      alt={activeTab.name} 
-                      className="w-full h-full object-cover transition-all duration-500"
-                    />
-                  </div>
-
-                 
-                  <div className="relative z-0 px-2">
-                  
-                    <SplitText 
-                      text={activeTab.name} 
-                      className="font-sora text-[#ff9003] text-2xl sm:text-3xl 4xl:text-4xl font-semibold tracking-tight mb-4 !leading-tight"
-                      // CAMBIO: Delay reducido a 0.3s (antes 0.5) para que aparezca apenas entra la imagen
+            <div className="w-full lg:w-1/2">
+                <div className="relative z-0 px-2">
+                    <h2 
+                      className="max-w-lg font-sora text-[#131e2e] text-3xl sm:text-4xl 2xl:text-[42px] 4xl:text-5xl font-semibold tracking-tight !leading-tight"
                       delay={0.3}  
-                    />
+                    >
+                      {servicios.name} 
+                    </h2>
                   
                     <div className="mt-4">
                       <motion.div
@@ -209,19 +151,31 @@ const TabPanel = ( {servicios} ) => {
                           className=""
                       >
                           <HtmlContent
-                              className="font-dmsans text-[#5e5e60] text-base 2xl:text-lg 4xl:text-xl"
-                              html={activeTab?.description}
+                              className="font-dmsans text-black text-base 2xl:text-lg 4xl:text-xl"
+                              html={servicios?.description}
                           />
                       </motion.div>
                     </div>
-
-                  </div>
-
-                </motion.div>
-              </AnimatePresence>
+                </div>
             </div>
 
-          </div>
+
+            <div className="w-full lg:w-1/2 flex flex-row items-end">
+              <div className="relative w-full h-[250px] sm:h-[450px] 4xl:h-[600px] overflow-hidden rounded-2xl bg-gray-100">
+                <motion.img 
+                  variants={jumpImageVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  src={`/api/services/media/${servicios.image}`}
+                  alt={servicios.name} 
+                  className="w-full h-full object-cover transition-all duration-500"
+                />
+              </div>
+            </div>
+            
+          </motion.div>
+        </AnimatePresence>
 
       </div>
     </section>

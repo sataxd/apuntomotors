@@ -40,37 +40,35 @@ class AboutusSeeder extends Seeder
                 'correlative' => 'whatsapp',
                 'name' => 'WhatsApp',
                 'description' => '5114605000',
-                'subtitle' => '',
             ],
             [
                 'correlative' => 'customer-complaints',
                 'name' => 'Libro de reclamaciones',
                 'description' => 'https://docs.google.com/forms/d/e/1FAIpQLSesYBA7aagw3XFpqZelSLb70mx4qEI4XO2PXh6JcVV5ghnkrQ/viewform',
-                'subtitle' => '',
             ],
             [
                 'correlative' => 'home-about-title',
-                'name' => 'Todo lo que Necesitas para Destacar tu Producto',
-                'subtitle' => 'Calidad y experiencia a tu servicio',
+                'name' => 'Tu Taller de Confianza',
+                'subtitle' => 'Expertos multimarca dedicados a mantener tu auto en su mejor rendimiento.',
             ],
             [
                 'correlative' => 'home-about-description',
-                'name' => 'Sobre Vitromaxx',
-                'description' => '<p>VITROMAXX es una empresa distribuidora de envases de vidrio con m&aacute;s de 10 a&ntilde;os en el mercado, nuestro objetivo es satisfacer a nuestros clientes en la industria de alimentos de conserva, bebidas, vinos y licores.</p><p>Ofrecemos una amplia gama de envases de vidrio, tapas pl&aacute;sticas, met&aacute;licas, corchos, capsulas termoencogible y maquinaria para el cerrado de envases.</p>',
+                'name' => 'Sobre Nosotros',
+                'description' => '<p>En Apunto Motors somos un taller mec&aacute;nico multimarca l&iacute;der en Lima, especializado en mantenimiento preventivo y correctivo. Destacamos por nuestra infraestructura moderna con tecnolog&iacute;a de diagn&oacute;stico avanzada y un equipo t&eacute;cnico altamente capacitado.</p>\r\n\r\n<p>Brindamos soluciones honestas, transparentes y eficientes para que conduzcas con total seguridad. Maximizamos el rendimiento de tu veh&iacute;culo utilizando repuestos originales para superar cada una de tus expectativas.</p>',
             ],
             [
                 'correlative' => 'home-about-cardone',
                 'name' => 'Misión',
-                'description' => '<p>Somos una empresa comercializadora de envases de vidrio que cubre las exigencias del cliente con un servicio preciso&nbsp;y seguro.</p>',
+                'description' => '<p>Ofrecer servicios de mantenimiento multimarca, garantizando la total seguridad y confianza de nuestros clientes en Lima.</p>',
                 'icon' => '21f306ca-a218-4d80-9881-1424bc5c8ecc.png',
-                'image' => '212cd686-9e20-4464-aecd-1ce2161fbe51.webp',
+                'image' => '7bb447e6-3c68-45f7-a8de-40a4061446ae.webp',
             ],
             [
                 'correlative' => 'home-about-cardsecond',
                 'name' => 'Visión',
-                'description' => '<p>Ser una empresa l&iacute;der en el mercado regional mejorando continuamente para lograr la total satisfacci&oacute;n de nuestros clientes.</p>',
+                'description' => '<p>Ser el taller mec&aacute;nico l&iacute;der y referente del pa&iacute;s, reconocido por nuestra transparencia, excelencia t&eacute;cnica y soluciones integrales.</p>',
                 'icon' => '8f635f34-fd30-43b6-bc63-ad25a1f84990.png',
-                'image' => '54ab53af-ebdd-40fe-8aeb-6c56639ee9cc.webp',
+                'image' => 'f78b147f-f508-4915-bbd1-d6ddaebceab7.webp',
             ],
             [
                 'correlative' => 'home-category-section',
@@ -78,15 +76,14 @@ class AboutusSeeder extends Seeder
             ],
             [
                 'correlative' => 'home-tecnician-title',
-                'name' => 'Acabados Exclusivos para tus Envases',
-                'subtitle' => 'Haz que tus productos destaquen con nuestros',
+                'name' => 'Somos tu taller mecánico automotriz de confianza',
             ],
             [
                 'correlative' => 'home-tecnico-section',
-                'name' => 'Tu diseño en cada botella',
-                'description' => '<p>Transformamos envases de vidrio comunes en piezas &uacute;nicas que conectan con tus clientes. Ofrecemos sublimado de alta resoluci&oacute;n que resiste el paso del tiempo, ideal para ediciones limitadas, regalos corporativos o el lanzamiento de tu nueva l&iacute;nea de productos.</p><p>Trabajamos desde peque&ntilde;os lotes para emprendedores hasta grandes vol&uacute;menes, manteniendo siempre los m&aacute;s altos est&aacute;ndares de calidad y detalle.</p>',
-                'image' => '596b2a05-c187-47d0-b9be-d71ee1983f05.jpg',
-                'button_text' => 'Todos los servicios',
+                'name' => 'Sobre Nosotros',
+                'description' => '<p>En Apunto Motors, nos consolidamos como el aliado estrat&eacute;gico para el cuidado de tu veh&iacute;culo, bas&aacute;ndonos en la excelencia y la transparencia. Con a&ntilde;os de experiencia en el sector automotriz, nuestro equipo de t&eacute;cnicos certificados utiliza infraestructura moderna para ofrecer servicios integrales que superan las expectativas m&aacute;s exigentes.</p>\r\n\r\n<p>Nuestra propuesta de valor se centra en un diagn&oacute;stico preciso y honesto, garantizando que cada unidad reciba el tratamiento especializado que merece bajo estrictos protocolos de seguridad y profesionalismo.</p>',
+                'image' => 'd5e2360c-abf8-492b-a021-a71af415af29.webp',
+                'button_text' => 'Más información',
             ],
             [
                 'correlative' => 'home-certified-section',
@@ -102,14 +99,16 @@ class AboutusSeeder extends Seeder
             [
                 'correlative' => 'home-contact-section',
                 'name' => 'Ponte en contacto',
-                'description' => '<p>Enviando un mensaje al correo ventas@vitromaxx.com o completar el formulario de contacto en nuestro sitio web. Tambi&eacute;n puede encontrarnos en las redes sociales, donde compartimos noticias y actualizaciones de la empresa.</p>',
+                'description' => '<p>&iquest;Tu veh&iacute;culo necesita atenci&oacute;n experta? No permitas que un peque&ntilde;o ruido se convierta en una falla mayor. En Apunto Motors estamos listos para brindarte la asesor&iacute;a t&eacute;cnica que necesitas con precios transparentes y atenci&oacute;n personalizada. <strong>&iexcl;Cont&aacute;ctanos hoy mismo y conduce con total tranquilidad!</strong></p>',
                 'subtitle' => 'Tambien puedes enviarnos un mensaje',
                 'button_text' => 'Enviar mensaje',
             ],
             [
                 'correlative' => 'home-clients-section',
                 'name' => 'Nuestros Clientes',
-                'description' => '<p>Desde emprendimientos locales hasta grandes marcas de licores y agencias corporativas, proveemos soluciones estrat&eacute;gicas en envasado de vidrio y personalizaci&oacute;n de alto impacto.</p><p>Garantizamos envases de primera calidad, impresiones duraderas y atenci&oacute;n detallada en cada lote. Por ello, la confianza de marcas y empresas del sector gastron&oacute;mico, hotelero y retail respalda nuestra trayectoria.</p>',
+                'description' => '<p>En Apunto Motors atendemos a una comunidad diversa, desde conductores particulares que buscan la m&aacute;xima seguridad familiar hasta empresas que requieren una gesti&oacute;n de flotas eficiente y puntual. Nuestros clientes valoran la transparencia en cada presupuesto y la precisi&oacute;n t&eacute;cnica, confiando en nosotros para mantener su movilidad sin contratiempos.</p>\r\n\r\n<p>Garantizamos la durabilidad de tu inversi&oacute;n y tu total confianza al volante a trav&eacute;s de soluciones mec&aacute;nicas expertas para cada cliente.</p>',
+                'icon' => 'dcbc27d1-73ae-4570-89d9-5c857611ee2e.png',
+                'image' => 'bc22b54d-6788-4a0c-883b-831757416c8c.mp4',
             ],
             [
                 'correlative' => 'services-title-section',
@@ -120,8 +119,8 @@ class AboutusSeeder extends Seeder
                 'correlative' => 'products-intercomunicadores-section',
                 'name' => 'Intercomunicadores',
                 'description' => '<p>Los sistemas de intercomunicadores permiten identificar a las personas desde el momento en que habla con ellos a través del intercomunicador o portero, de la misma forma que usted se comunica por un teléfono convencional o monitor.</p>',
-                'button_text' => 'Ver todos los productos',
                 'image' => '2d04a0f7-6004-4101-8c0f-b79fe5d7488d.png',
+                'button_text' => 'Ver todos los productos',
             ],
             [
                 'correlative' => 'products-intercomunicadoressecond-1benefit',
@@ -216,6 +215,11 @@ class AboutusSeeder extends Seeder
                 'name' => 'Equipos y accesorios de cercos eléctricos',
                 'description' => '<p>Sistemas de cercado el&eacute;ctrico certificados para seguridad industrial y residencial. Ofrecemos una gama completa de accesorios: desde cables de acero inoxidable de alta conductividad hasta sensores de flexi&oacute;n.</p>',
                 'image' => '1e2baba4-51f3-4008-a790-9fc4b82a21ff.webp',
+            ],
+            [
+                'correlative' => 'head-section-services',
+                'name' => 'Conoce nuestros servicios',
+                'subtitle' => 'Nuestros años de experiencia nos permiten ofrecer servicios de excelencia',
             ],
         ];
 
