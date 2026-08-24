@@ -8,6 +8,7 @@ use App\Observers\SaleCreationObserver;
 use App\Observers\SaleStatusObserver;
 use App\Observers\UserNameObserver;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
         ]);
         User::observe(UserNameObserver::class);
         
-        if (App::environment('production')) {
+        if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }
     }
