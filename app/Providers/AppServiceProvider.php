@@ -29,5 +29,9 @@ class AppServiceProvider extends ServiceProvider
             SaleStatusObserver::class,
         ]);
         User::observe(UserNameObserver::class);
+        
+        if (App::environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }
