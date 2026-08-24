@@ -4,14 +4,22 @@ const FilterPagination = ({ current, setCurrent, pages }) => {
   const array = new Array(pages || 1)
   array.fill(null)
 
+  // const onPrevPageClicked = () => {
+  //   const page = current--
+  //   setCurrent(page < 1 ? 1 : page)
+  // }
+
   const onPrevPageClicked = () => {
-    const page = current--
-    setCurrent(page < 1 ? 1 : page)
+    setCurrent(prev => (prev > 1 ? prev - 1 : 1));
   }
 
+  // const onNextPageClicked = () => {
+  //   const page = current--
+  //   setCurrent(page > pages ? pages : page)
+  // }
+
   const onNextPageClicked = () => {
-    const page = current--
-    setCurrent(page > pages ? pages : page)
+    setCurrent(prev => (prev < pages ? prev + 1 : pages));
   }
 
   useEffect(() => {

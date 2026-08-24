@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use SoDe\Extend\Crypto;
+use App\Models\Post;
 use SoDe\Extend\Response;
 use SoDe\Extend\Text;
 use Illuminate\Support\Facades\Schema;
@@ -37,6 +38,26 @@ class GeneralController extends BasicController
         $response = new Response();
         try {
             $data = Social::where('status',true)->where('visible',true)->get();
+            $response->data = $data;
+            $response->status = 200;
+            $response->message = 'Operacion correcta';
+        } catch (\Throwable $th) {
+
+            $response->status = 400;
+            $response->message = $th->getMessage();
+        } finally {
+            return response(
+                $response->toArray(),
+                $response->status
+            );
+        }
+    }
+
+    public function getBlogs(Request $request): HttpResponse|ResponseFactory
+    {
+        $response = new Response();
+        try {
+            $data = Post::where('status',true)->get();
             $response->data = $data;
             $response->status = 200;
             $response->message = 'Operacion correcta';

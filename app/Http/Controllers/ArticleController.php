@@ -12,16 +12,16 @@ class ArticleController extends BasicController
 
     public function setReactViewProperties(Request $request)
     {
-        if (!$request->articleId) return redirect()->route('Blog.jsx');
+        if (!$request->slug) return redirect()->route('Blog.jsx');
 
-        $currentArticle = Post::with(['category', 'tags'])->find($request->articleId);
-
-        $nextArticle = Post::select(['name', 'id'])
+        $currentArticle = Post::with(['category', 'tags'])->where('slug', $request->slug)->first();
+     
+        $nextArticle = Post::select(['name', 'slug'])
             ->where('post_date', '>', $currentArticle->post_date)
             ->orderBy('post_date', 'asc')
             ->first();
 
-        $previousArticle = Post::select(['name', 'id'])
+        $previousArticle = Post::select(['name', 'slug'])
             ->where('post_date', '<', $currentArticle->post_date)
             ->orderBy('post_date', 'desc')
             ->first();

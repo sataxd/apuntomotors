@@ -181,6 +181,33 @@ const Menu = ({ session, hasRole, salesCount }) => {
                                     </MenuItem>
                                 </MenuItemContainer>
 
+                                <MenuItemContainer
+                                    title="Blog"
+                                    icon="mdi mdi-cube"
+                                >
+                                    <MenuItem
+                                        href="/admin/category_post"
+                                        icon="mdi mdi-clipboard-list-outline"
+                                    >
+                                        Categorías
+                                    </MenuItem>
+
+                                    <MenuItem
+                                    href="/admin/tags"
+                                    icon="mdi mdi-frequently-asked-questions"
+                                    >
+                                        Tags
+                                    </MenuItem>
+
+                                    <MenuItem
+                                        href="/admin/posts"
+                                        icon="mdi mdi-frequently-asked-questions"
+                                    >
+                                        Posts
+                                    </MenuItem>
+
+                                </MenuItemContainer>
+
                                 {/* <MenuItemContainer
                                     title="Ventas"
                                     icon="mdi mdi-cash-register"

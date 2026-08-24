@@ -14,6 +14,7 @@ class Post extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
+        'slug',
         'name',
         'summary',
         'category_id',
@@ -25,8 +26,9 @@ class Post extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class, 'id', 'category_id');
+        return $this->hasOne(CategoryPost::class, 'id', 'category_id');
     }
+    
 
     public function tags() {
         return $this->hasManyThrough(Tag::class, PostTag::class, 'post_id', 'id', 'id', 'tag_id');

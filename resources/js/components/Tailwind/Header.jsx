@@ -189,7 +189,22 @@ const Header = ({
         };
 
         fetchSocials();
-    }, []); // Asegúrate de que este array de dependencias está vacío si solo se ejecuta una vez
+    }, []);
+
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const data = await generalRest.getBlogs();
+                setBlogs(data);
+            } catch (error) {
+                console.error("Error fetching socials:", error);
+            }
+        };
+
+        fetchBlogs();
+    }, []); 
 
     const TikTok = socials.find((social) => social.description === "TikTok");
     const WhatsApp = socials.find(
@@ -353,6 +368,9 @@ const Header = ({
                                 {/* </div> */}
                                 <a href="/nosotros">Nosotros</a>
                                 <a href="/servicios">Servicios</a>
+                                {blogs.length > 0 && (
+                                    <a href="/blog">Blog</a>
+                                )}
                                 <a href="/contacto">Contacto</a>
                             </nav>
                             
@@ -556,6 +574,13 @@ const Header = ({
                                     Servicios
                                 </a>
                             </li>
+
+                            {/* Blog */}
+                            {blogs.length > 0 && (
+                                <li className="border-b border-white/10">
+                                    <a className="block px-8 py-5 hover:bg-white/5 transition-colors" href="/blog">Blog</a>
+                                </li>
+                            )}
 
                             {/* Contacto */}
                             <li className="border-b border-white/10">

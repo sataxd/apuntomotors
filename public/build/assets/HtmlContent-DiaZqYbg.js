@@ -1,1 +1,0 @@
-import{j as r}from"./AboutHeader-B0xeqd_u.js";import"./index-B80Lgev0.js";const m=({className:t,html:e,properties:n,htmlcontent:o="html-content"})=>r.jsx("div",{className:`${o||""} flex flex-col gap-3 ${t||""}`,dangerouslySetInnerHTML:{__html:e},...n});export{m as H};

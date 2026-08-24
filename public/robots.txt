@@ -1,7 +1,23 @@
+# Permitir acceso general a los buscadores
 User-agent: *
-Disallow: /login
-Disallow: /test
-Disallow: /supplies
-Disallow: /faqs
 Allow: /
-Sitemap: https://vua.pe/sitemap.xml
+
+# Bloquear panel de administración completo
+Disallow: /admin/
+
+# Bloquear autenticación, registro y áreas de usuario privado
+Disallow: /login
+Disallow: /register
+Disallow: /confirm-email/
+Disallow: /confirmation/
+Disallow: /my-account
+
+# Bloquear vistas de correos o pruebas internas
+Disallow: /mailing/
+
+# Bloquear pasarela de pagos y carrito (activo o futuras activaciones)
+Disallow: /cart
+Disallow: /checkout
+
+# Enlace al mapa del sitio XML generado dinámicamente
+Sitemap: https://apuntomotors.com/sitemap.xml

@@ -41,6 +41,8 @@ use App\Http\Controllers\Admin\SaleStatusController as AdminSaleStatusController
 use App\Http\Controllers\Admin\SupplyController as AdminSupplyController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\ComplaintController as AdminComplaintController;
+use App\Http\Controllers\Admin\CategoryPostController as AdminCategoryPostController;
+use App\Http\Controllers\Admin\TagController as AdminTagController;
 
 // Customer
 use App\Http\Controllers\Customer\UserFormulasController as CustomerUserFormulasController;
@@ -63,6 +65,7 @@ use App\Http\Controllers\ItemImageController;
 use App\Http\Controllers\MailingController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ShippingCostController;
 use App\Http\Controllers\StrengthController;
@@ -91,6 +94,7 @@ use App\Models\Province;
 Route::get('/generals/get-socials', [GeneralController::class, 'getSocials']);
 Route::get('/generals/get-benefits', [GeneralController::class, 'getBenefits']);
 Route::get('/generals/get-aboutuses', [GeneralController::class, 'getAboutuses']);
+Route::get('/generals/get-blogs', [GeneralController::class, 'getBlogs']);
 Route::get('/generals/get-session', [GeneralController::class, 'getSession']);
 
 //Shipping
@@ -214,6 +218,12 @@ Route::middleware('auth')->group(function () {
         Route::patch('/colors/status', [AdminItemColorController::class, 'status']);
         Route::patch('/colors/{field}', [AdminItemColorController::class, 'boolean']);
         Route::delete('/colors/{id}', [AdminItemColorController::class, 'delete']);
+
+        Route::post('/tags', [AdminTagController::class, 'save']);
+        Route::post('/tags/paginate', [AdminTagController::class, 'paginate']);
+        Route::patch('/tags/status', [AdminTagController::class, 'status']);
+        Route::patch('/tags/{field}', [AdminTagController::class, 'boolean']);
+        Route::delete('/tags/{id}', [AdminTagController::class, 'delete']);
 
         Route::post('/instagram_posts', [AdminInstagramPostsController::class, 'save']);
         Route::post('/instagram_posts/paginate', [AdminInstagramPostsController::class, 'paginate']);
@@ -363,6 +373,12 @@ Route::middleware('auth')->group(function () {
         Route::patch('/generals/status', [AdminGeneralController::class, 'status']);
         Route::patch('/generals/{field}', [AdminGeneralController::class, 'boolean']);
         Route::delete('/generals/{id}', [AdminGeneralController::class, 'delete']);
+
+        Route::post('/categoriespost', [AdminCategoryPostController::class, 'save']);
+        Route::post('/categoriespost/paginate', [AdminCategoryPostController::class, 'paginate']);
+        Route::patch('/categoriespost/status', [AdminCategoryPostController::class, 'status']);
+        Route::patch('/categoriespost/{field}', [AdminCategoryPostController::class, 'boolean']);
+        Route::delete('/categoriespost/{id}', [AdminCategoryPostController::class, 'delete']);
 
         Route::post('/users', [AdminUserController::class, 'save']);
         Route::post('/users/paginate', [AdminUserController::class, 'paginate']);

@@ -36,6 +36,8 @@ use App\Http\Controllers\Admin\CouponController as AdminCouponController;
 use App\Http\Controllers\Admin\SaleController as AdminSaleController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\ComplaintController as AdminComplaintController;
+use App\Http\Controllers\Admin\CategoryPostController as AdminCategoryPostController;
+
 
 // Public 
 use App\Http\Controllers\HomeController;
@@ -72,7 +74,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestResultController;
 use App\Http\Controllers\ThankController;
 use App\Http\Controllers\VideoporterosController;
-
+use App\Services\SitemapGenerator;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,33 +90,34 @@ use App\Http\Controllers\VideoporterosController;
 Route::get('/', [HomeController::class, 'reactView'])->name('Home.jsx');
 Route::get('/nosotros', [AboutController::class, 'reactView'])->name('About.jsx');
 Route::get('/contacto', [ContactController::class, 'reactView'])->name('Contact.jsx');
-Route::get('/catalogo', [CatalogController::class, 'reactView'])->name('CatalogProducts.jsx');
-Route::get('/catalogo/{category_slug}', [CatalogController::class, 'reactView'])->name('CatalogProducts.jsx');
-Route::get('/catalogo/{category_slug}/{subcategory_slug}', [CatalogController::class, 'reactView'])->name('CatalogProducts.jsx');
-Route::get('/producto/{category_slug}/{subcategory_slug}/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
-Route::get('/producto/{category_slug}/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
 Route::get('/servicios', [ServiceController::class, 'reactView'])->name('ServicesAll.jsx');
 Route::get('/servicios/{slug}', [ServicesController::class, 'reactView'])->name('Services.jsx');
-// Route::get('/producto/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
 Route::get('/terminos-y-condiciones', [TermsController::class, 'reactView'])->name('Terms.jsx');
 Route::get('/politicas-de-privacidad', [PrivacyController::class, 'reactView'])->name('Privacy.jsx');
-Route::get('/politicas-de-envios', [ShippingPoliticsController::class, 'reactView'])->name('ShippingPolitics.jsx');
-Route::get('/politicas-de-cambio-y-devolucion', [ReturnPoliticsController::class, 'reactView'])->name('ReturnPolitics.jsx');
 Route::get('/libro-de-reclamaciones', [ComplaintController::class, 'reactView'])->name('ComplaintsBook.jsx');
+Route::get('/blog', [BlogController::class, 'reactView'])->name('Blog.jsx');
+Route::get('/blog/{slug}', [ArticleController::class, 'reactView'])->name('BlogArticle.jsx');
 
+// RUTA DEL SITEMAP
+Route::get('/sitemap.xml', function (SitemapGenerator $generator) {
+    return $generator->generate()->toResponse(request());
+});
 
+// Route::get('/catalogo', [CatalogController::class, 'reactView'])->name('CatalogProducts.jsx');
+// Route::get('/catalogo/{category_slug}', [CatalogController::class, 'reactView'])->name('CatalogProducts.jsx');
+// Route::get('/catalogo/{category_slug}/{subcategory_slug}', [CatalogController::class, 'reactView'])->name('CatalogProducts.jsx');
+// Route::get('/producto/{category_slug}/{subcategory_slug}/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
+// Route::get('/producto/{category_slug}/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
+// Route::get('/politicas-de-envios', [ShippingPoliticsController::class, 'reactView'])->name('ShippingPolitics.jsx');
+// Route::get('/politicas-de-cambio-y-devolucion', [ReturnPoliticsController::class, 'reactView'])->name('ReturnPolitics.jsx');
 
-
+// Route::get('/producto/{slug}', [DetailController::class, 'reactView'])->name('DetailProduct.jsx');
 // Route::get('/intercomunicadores', [IntercomunicatorController::class, 'reactView'])->name('Intercomunicadores.jsx');
 // Route::get('/videoporteros', [VideoporterosController::class, 'reactView'])->name('Videoporteros.jsx');
 // Route::get('/alarma-contra-incendios', [AlarmaIncendioController::class, 'reactView'])->name('AlarmaIncendios.jsx');
 // Route::get('/sistema-de-alarma-contra-robo', [AlarmaRobosController::class, 'reactView'])->name('AlarmaRobos.jsx');
 // Route::get('/intercomunicador-hospitalario', [HospitalarioController::class, 'reactView'])->name('Hospitalario.jsx');
 // Route::get('/sistema-de-cerco-electrico', [ElectricoController::class, 'reactView'])->name('CercoElectrico.jsx');
-
-// Route::get('/blog', [BlogController::class, 'reactView'])->name('Blog.jsx');
-// Route::get('/blog/{articleId}', [ArticleController::class, 'reactView'])->name('BlogArticle.jsx');
-
 //Route::get('/instructions', [InstructionController::class, 'reactView'])->name('Instructions.jsx');
 //Route::get('/quiz', [CatalogController::class, 'reactView'])->name('Quiz.jsx');
 //Route::get('/plans', [PlanController::class, 'reactView'])->name('Plans.jsx');
@@ -125,11 +128,11 @@ Route::get('/libro-de-reclamaciones', [ComplaintController::class, 'reactView'])
 
 
 // Vistas maquetadas finalizadas
-Route::get('/cart', [CartController::class, 'reactView'])->name('Cart.jsx');
-Route::get('/checkout', [CheckoutController::class, 'reactView'])->name('Checkout.jsx');
-Route::get('/formula/{formula}', [FormulaController::class, 'reactView'])->name('Formula.jsx');
-Route::get('/thanks', [ThankController::class, 'reactView'])->name('Thanks.jsx');
-Route::get('/popup', [PopupController::class, 'reactView'])->name('Popup.jsx');
+// Route::get('/cart', [CartController::class, 'reactView'])->name('Cart.jsx');
+// Route::get('/checkout', [CheckoutController::class, 'reactView'])->name('Checkout.jsx');
+// Route::get('/formula/{formula}', [FormulaController::class, 'reactView'])->name('Formula.jsx');
+// Route::get('/thanks', [ThankController::class, 'reactView'])->name('Thanks.jsx');
+// Route::get('/popup', [PopupController::class, 'reactView'])->name('Popup.jsx');
 
 Route::get('/login', [AuthController::class, 'loginView'])->name('Login.jsx');
 Route::get('/register', [AuthController::class, 'registerView'])->name('Register.jsx');
@@ -178,7 +181,7 @@ Route::middleware(['can:Admin', 'auth'])->prefix('admin')->group(function () {
     Route::get('/generals', [AdminGeneralController::class, 'reactView'])->name('Admin/Generals.jsx');
     Route::get('/users', [AdminUserController::class, 'reactView'])->name('Admin/Users.jsx');
     Route::get('/complaints', [AdminComplaintController::class, 'reactView'])->name('Admin/Complaints.jsx');
-
+    Route::get('/category_post', [AdminCategoryPostController::class, 'reactView'])->name('Admin/CategoriesPost.jsx');
     Route::get('/profile', [AdminProfileController::class, 'reactView'])->name('Admin/Profile.jsx');
     Route::get('/account', [AdminAccountController::class, 'reactView'])->name('Admin/Account.jsx');
 });
