@@ -98,6 +98,10 @@ Route::get('/libro-de-reclamaciones', [ComplaintController::class, 'reactView'])
 Route::get('/blog', [BlogController::class, 'reactView'])->name('Blog.jsx');
 Route::get('/blog/{slug}', [ArticleController::class, 'reactView'])->name('BlogArticle.jsx');
 
+Route::get('/ver-servidor', function () {
+    return $_SERVER['SERVER_SOFTWARE'] ?? 'No disponible';
+});
+
 // RUTA DEL SITEMAP
 Route::get('/sitemap.xml', function (SitemapGenerator $generator) {
     return $generator->generate()->toResponse(request());
