@@ -39,7 +39,8 @@
     <meta name="title" content="{{ $seoTitle }}" />
     <meta name="description" content="{{ $seoDescription }}" />
     <meta name="keywords" content="{{ $seoKeywords }}" />
-
+    <meta name="google-site-verification" content="s3_VO7aulEECSv4XUEF1vVh2PsibXBVkvH7IWDrv788" />
+    
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/png">
 
