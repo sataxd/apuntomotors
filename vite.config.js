@@ -33,6 +33,10 @@ export default defineConfig({
         },
     },
     build: {
+        commonjsOptions: {
+            include: [/jsencrypt/, /node_modules/],
+            transformMixedEsModules: true,
+        },
         rollupOptions: {
             output: {
                 assetFileNames: (assetInfo) => {
