@@ -1,8 +1,17 @@
-RewriteEngine on
-RewriteCond %{REQUEST_URI} !^public
-RewriteRule ^(.*)$ public/$1 [L]
-RewriteCond %{HTTPS} off
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Redirigir HTTP a HTTPS (Código 301 para SEO)
+    RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # 2. Evitar bucles y ocultar la carpeta public si ya está en la URL
+    RewriteCond %{REQUEST_URI} !^/public/
+
+    # 3. Enviar todo el tráfico hacia la carpeta public de forma invisible
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the “ea-php82” package as the default “PHP” programming language.
 <IfModule mime_module>
