@@ -1,13 +1,13 @@
 import React from "react"
 
 const Filter = ({ categories, filter, setFilter }) => {
-  return <section className="p-[5%] mt-[70px]">
+  return <section className="px-[5%] py-10 mt-[70px]">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 md:gap-8 items-center">
       
       <div className="col-span-1 md:col-span-2 lg:col-span-4 text-center lg:text-left">
-        <h2 className="font-sora text-black text-3xl sm:text-4xl 4xl:text-5xl font-semibold tracking-tight mb-4 !leading-tight max-w-2xl">
+        <h1 className="font-sora text-black text-3xl sm:text-4xl 4xl:text-5xl font-semibold tracking-tight mb-4 !leading-tight max-w-2xl">
           Todas las publicaciones de nuestro boletín informativo
-        </h2>
+        </h1>
       </div>
 
       <button className="col-span-1 md:col-span-1 lg:col-span-2 text-base sm:text-lg text-end font-dmsans font-semibold leading-snug text-[#dd0613] flex flex-row justify-end md:justify-center xl:justify-end transition-all" onClick={() => setFilter(old => ({

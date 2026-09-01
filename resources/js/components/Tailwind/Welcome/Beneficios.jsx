@@ -18,7 +18,7 @@ const Beneficios = ({brands, apiFolder}) => {
                           alt={logo.name} 
                         />
                       </div>
-                      <h2 className='font-dmsans text-[#131e2e] text-base 2xl:text-lg 4xl:text-xl tracking-tight font-medium'>{logo.name}</h2>
+                      <h3 className='font-dmsans text-[#131e2e] text-base 2xl:text-lg 4xl:text-xl tracking-tight font-medium'>{logo.name}</h3>
                   </div>
             ))}
           </div>

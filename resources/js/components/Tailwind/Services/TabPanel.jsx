@@ -6,57 +6,6 @@ import { LoadingContext } from "../Base";
 
 const generalRest = new GeneralRest();
 
-const SplitText = ({ text, className, delay = 0}) => {
-  const letters = text.split("");
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      // Hacemos el stagger más rápido (0.015s en vez de 0.03s) para acompañar la velocidad
-      transition: { staggerChildren: 0.015, delayChildren: delay } 
-    })
-  };
-
-  const childVariants = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      y: 20, 
-      rotateX: -90, 
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-  };
-
-  return (
-    <motion.div
-      style={{ overflow: "hidden", display: "flex", flexWrap: "wrap" }}
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className={className}
-    >
-      {letters.map((letter, index) => (
-        <motion.span variants={childVariants} key={index} style={{ position: "relative" }}>
-          {letter === " " ? "\u00A0" : letter}
-        </motion.span>
-      ))}
-    </motion.div>
-  );
-};
-
 const TabPanel = ( {servicios} ) => {
   
   if (!servicios || servicios.length === 0) return null;
@@ -134,12 +83,12 @@ const TabPanel = ( {servicios} ) => {
 
             <div className="w-full lg:w-1/2">
                 <div className="relative z-0 px-2">
-                    <h2 
+                    <h1 
                       className="max-w-lg font-sora text-[#131e2e] text-3xl sm:text-4xl 2xl:text-[42px] 4xl:text-5xl font-semibold tracking-tight !leading-tight"
                       delay={0.3}  
                     >
                       {servicios.name} 
-                    </h2>
+                    </h1>
                   
                     <div className="mt-4">
                       <motion.div

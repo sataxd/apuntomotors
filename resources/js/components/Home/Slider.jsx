@@ -11,7 +11,7 @@ import SwiperGL from '../../lib/swiper-gl.esm.js';
 import '../../lib/swiper-gl.css';
 
 // --- COMPONENTES DE ANIMACIÓN (Sin cambios) ---
-const SplitText = ({ text, isActive, delay = 0, className = '' }) => {
+const SplitText = ({ text, isActive, delay = 0, className = '', as = 'h2' }) => {
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
@@ -33,11 +33,13 @@ const SplitText = ({ text, isActive, delay = 0, className = '' }) => {
     },
   };
 
-  // Separamos por palabras para evitar cortes de línea a mitad de palabra
   const words = text.split(" ");
+  
+  // Selecciona dinámicamente la etiqueta de Framer Motion según la prop 'as'
+  const MotionTag = motion[as] || motion.h2;
 
   return (
-    <motion.h2
+    <MotionTag
       style={{ display: 'flex', flexWrap: 'wrap' }}
       variants={container}
       initial="hidden"
@@ -45,11 +47,10 @@ const SplitText = ({ text, isActive, delay = 0, className = '' }) => {
       className={className}
     >
       {words.map((word, wordIndex) => (
-        // Cada palabra se envuelve en un span con whitespace-nowrap
         <span 
           key={wordIndex} 
           style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
-          className="mr-[0.25em]" // Espacio manual entre palabras
+          className="mr-[0.25em]"
         >
           {word.split("").map((letter, letterIndex) => (
             <motion.span 
@@ -62,7 +63,7 @@ const SplitText = ({ text, isActive, delay = 0, className = '' }) => {
           ))}
         </span>
       ))}
-    </motion.h2>
+    </MotionTag>
   );
 };
 
@@ -123,7 +124,7 @@ const Slider = ({ items }) => {
   }
   
   return (
-    <div className="relative group mt-[70px] h-[520px] lg:h-[70vh] 2xl:h-[85vh]">
+    <div className="relative group mt-[70px] h-[520px] lg:h-[80vh] 2xl:h-[85vh]">
       <Swiper
         className="slider relative"
         modules={swiperModules}
@@ -151,65 +152,68 @@ const Slider = ({ items }) => {
             const uniqueKey = slider.id || index;
 
             return (
-                <SwiperSlide key={uniqueKey} className='relative overflow-hidden'>
-                    {({ isActive }) => (
-                        <>
-                            {slider.esimagen == 1 ? (
-                                <img
-                                    // La clase swiper-gl-image es necesaria para el efecto GL, 
-                                    // pero no estorba si el efecto está en 'slide' swiper-gl-image
-                                    className=' absolute top-0 left-0 w-full h-full object-cover object-center z-0 block'
-                                    src={`/api/sliders/media/${slider.image || 'undefined'}`}
-                                    alt={slider.name}
-                                    onError={(e) => (e.target.src = '/api/cover/thumbnail/null')}
-                                />
-                            ) : (
-                                <video
-                                    className={`absolute top-0 left-0 w-full h-full object-cover object-center z-0 block`}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    preload="auto"
-                                    disablePictureInPicture
-                                    disableRemotePlayback
-                                >
-                                    <source src={`/api/sliders/media/${slider?.video}`} type="video/mp4" />
-                                </video>
-                            )}
-
-                            <div style={{ background: "linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(0,0,0,0.1) 100%)" }} className="relative grid grid-cols-1 lg:grid-cols-2 w-full px-[5%] lg:px-[8%] p-4 h-[520px] lg:h-[70vh] 2xl:h-[85vh]">
-                                <div className="flex flex-col col-span-1 lg:col-span-1 gap-5 2xl:gap-7 4xl:gap-10 items-start justify-center text-start">
-                                    
-                                    <SplitText 
-                                        text={slider?.name || ""}
-                                        isActive={isActive}
-                                        delay={1}
-                                        className='font-sora text-white text-3xl sm:text-5xl 4xl:text-6xl tracking-normal font-semibold !leading-tight'
-                                    />
-                                    
-                                    <motion.p 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                                        transition={{ duration: 1.8, delay: 1 }}
-                                        className="font-dmsans text-white text-lg xl:text-xl 4xl:text-2xl tracking-wide font-light"
-                                    >
-                                        {slider?.description}
-                                    </motion.p>
-                                    
-                                    <div className="flex flex-row mt-2">
-                                        <AnimatedButton 
-                                            text={slider?.button_text || "Ver más"} 
-                                            link={slider?.button_link} 
-                                            isActive={isActive}
-                                            delay={0.6}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </>
-                    )}
-                </SwiperSlide>
+              <SwiperSlide key={uniqueKey} className='relative overflow-hidden'>
+                  {({ isActive }) => (
+                      <>
+                          {slider.esimagen == 1 ? (
+                              <img
+                                  className='absolute top-0 left-0 w-full h-full object-cover object-center z-0 block'
+                                  src={`/api/sliders/media/${slider.image || 'undefined'}`}
+                                  alt={slider.alt_text || slider.name} // Preferible un texto descriptivo específico
+                                  loading="lazy" // Mejora la carga inicial y el rendimiento (Core Web Vitals)
+                                  onError={(e) => (e.target.src = '/api/cover/thumbnail/null')}
+                              />
+                          ) : (
+                              <video
+                                  className='absolute top-0 left-0 w-full h-full object-cover object-center z-0 block'
+                                  autoPlay
+                                  loop
+                                  muted
+                                  playsInline
+                                  preload="auto"
+                                  disablePictureInPicture
+                                  disableRemotePlayback
+                                  aria-label={slider.name} // Accesibilidad para lectores de pantalla
+                              >
+                                  <source src={`/api/sliders/media/${slider?.video}`} type="video/mp4" />
+                                  Tu navegador no soporta la reproducción de video.
+                              </video>
+                          )}
+              
+                          <div style={{ background: "linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(0,0,0,0.1) 100%)" }} className="relative grid grid-cols-1 lg:grid-cols-2 w-full px-[5%] lg:px-[8%] p-4 h-[520px] lg:h-[80vh] 2xl:h-[85vh]">
+                              <div className="flex flex-col col-span-1 lg:col-span-1 gap-5 2xl:gap-7 4xl:gap-10 items-start justify-center text-start">
+                                  
+                                  {/* Asegúrate de que SplitText permita inyectar una etiqueta semántica h1 o h2 */}
+                                  <SplitText 
+                                      text={slider?.name || ""}
+                                      isActive={isActive}
+                                      delay={1}
+                                      as={index === 0 ? "h1" : "h2"}
+                                      className='font-sora text-white text-3xl sm:text-5xl 4xl:text-6xl tracking-normal font-semibold !leading-tight'
+                                  />
+                                  
+                                  <motion.p 
+                                      initial={{ opacity: 0, x: -20 }}
+                                      animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                                      transition={{ duration: 1.8, delay: 1 }}
+                                      className="font-dmsans text-white text-lg xl:text-xl 4xl:text-2xl tracking-wide font-light"
+                                  >
+                                      {slider?.description}
+                                  </motion.p>
+                                  
+                                  <div className="flex flex-row mt-2">
+                                      <AnimatedButton 
+                                          text={slider?.button_text || "Ver más"} 
+                                          link={slider?.button_link} 
+                                          isActive={isActive}
+                                          delay={0.6}
+                                      />
+                                  </div>
+                              </div>
+                          </div>
+                      </>
+                  )}
+              </SwiperSlide>
             );
           })
         }

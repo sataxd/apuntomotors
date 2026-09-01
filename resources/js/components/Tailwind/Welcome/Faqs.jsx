@@ -11,9 +11,9 @@ const Faqs = ({ tieneMargen = false, faqs }) => {
         <section className={`relative w-full px-[5%] 4xl:px-[8%] gap-10 4xl:gap-16 flex flex-col items-center py-10 xl:py-16 ${bgVariable}`}>
 
             <div className="w-full flex flex-col gap-2 justify-center items-center">
-                <h3 className="font-sora text-[#131e2e] text-3xl sm:text-4xl 2xl:text-4xl 4xl:text-5xl font-semibold tracking-tight !leading-tight mb-3 text-center">
+                <h1 className="font-sora text-[#131e2e] text-3xl sm:text-4xl 2xl:text-4xl 4xl:text-5xl font-semibold tracking-tight !leading-tight mb-3 text-center">
                     Asistencia al Cliente
-                </h3>
+                </h1>
             </div>
 
             {/* AQUÍ ESTÁ LA MAGIA DEL GRID */}
@@ -22,7 +22,7 @@ const Faqs = ({ tieneMargen = false, faqs }) => {
                     faqs?.map((faq, index) => {
                         return (
                             <div key={index} className='bg-white rounded-xl text-[#404040] shadow-md'>
-                                <h1 
+                                <h2 
                                     // Cambié items-center por items-start para que si hay varias líneas, la flecha y el número se queden arriba
                                     className='text-base 4xl:text-lg flex justify-between items-start font-sora font-medium px-6 py-4 bg-[#f8f8f8] rounded-xl shadow-md cursor-pointer transition-colors hover:bg-gray-100' 
                                     onClick={() => setOpened(opened === faq.id ? null : faq.id)}
@@ -40,7 +40,7 @@ const Faqs = ({ tieneMargen = false, faqs }) => {
                                             ? <i className='mdi mdi-arrow-up ml-4 mt-[2px] flex-shrink-0'></i>
                                             : <i className='mdi mdi-arrow-down ml-4 mt-[2px] flex-shrink-0'></i>
                                     }
-                                </h1>
+                                </h2>
                                 <p className={`px-6 text-base 4xl:text-lg font-dmsans transition-all duration-300 overflow-hidden ${opened === faq.id ? 'py-4 opacity-100 max-h-96' : 'py-0 opacity-0 max-h-0'}`}>
                                     {faq.description}
                                 </p>
