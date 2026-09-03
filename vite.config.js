@@ -26,7 +26,6 @@ export default defineConfig({
     // },
     resolve: {
         alias: {
-            'jsencrypt': path.resolve(__dirname, 'node_modules/jsencrypt/bin/jsencrypt.min.js'),
             '@Adminto': path.resolve(__dirname, 'resources/js/Components/Adminto'),
             '@Tailwind': path.resolve(__dirname, 'resources/js/Components/Tailwind'),
             '@Utils': path.resolve(__dirname, 'resources/js/Utils'),
