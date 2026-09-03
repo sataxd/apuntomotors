@@ -1,13 +1,13 @@
 import { Link } from '@inertiajs/react'
-import JSEncrypt from 'jsencrypt'
-import React, { useEffect, useRef, useState } from 'react'
-import { createRoot } from 'react-dom/client'
-import ReCAPTCHA from 'react-google-recaptcha'
-import Swal from 'sweetalert2'
-import CreateReactScript from './Utils/CreateReactScript'
-import Global from './Utils/Global'
-import AuthRest from './actions/AuthRest'
-import { User, Mail, Lock, Calendar, Gift } from 'lucide-react'
+import JSEncrypt from 'jsencrypt';
+import React, { useEffect, useRef, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import ReCAPTCHA from 'react-google-recaptcha';
+import Swal from 'sweetalert2';
+import CreateReactScript from './Utils/CreateReactScript';
+import Global from './Utils/Global';
+import AuthRest from './actions/AuthRest';
+import { User, Mail, Lock, Calendar, Gift } from 'lucide-react';
 import { CarritoProvider } from "./context/CarritoContext";
 import Base from "./components/Tailwind/Base";
 import Header from "./components/Tailwind/Header";

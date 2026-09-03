@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import 'tippy.js/dist/tippy.css';
-import JSEncrypt from 'jsencrypt'
+import JSEncrypt from 'jsencrypt';
 import BaseAdminto from '../Components/Adminto/Base';
 import CreateReactScript from '../Utils/CreateReactScript';
 import AccountRest from '../Actions/Admin/AccountRest';

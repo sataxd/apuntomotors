@@ -3169,7 +3169,7 @@
     ]
   },
   "resources/js/components/About/images/header.png": {
-    "file": "header2.png",
+    "file": "header.png",
     "src": "resources/js/components/About/images/header.png"
   },
   "resources/js/components/About/images/history.png": {
@@ -3489,7 +3489,7 @@
     ]
   },
   "resources/js/components/Blog/images/header.png": {
-    "file": "header.png",
+    "file": "header2.png",
     "src": "resources/js/components/Blog/images/header.png"
   },
   "resources/js/components/Contact/Address.jsx": {
