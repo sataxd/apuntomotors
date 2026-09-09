@@ -189,6 +189,8 @@
     @endif
     <!-- End TikTok Pixel Code -->
 
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="Rc9HWHxuNjqX27PGH8lP5A" async></script>
+    
     <style>
         body {
             /*background-image: url('/home-mobile.png');*/
