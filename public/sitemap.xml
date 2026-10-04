@@ -1,105 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://localhost</loc>
-        <lastmod>2026-09-23T17:16:59+00:00</lastmod>
+        <loc>https://apuntomotors.com</loc>
+        <lastmod>2026-10-04T18:20:25+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://localhost/nosotros</loc>
-        <lastmod>2026-09-23T17:16:59+00:00</lastmod>
+        <loc>https://apuntomotors.com/nosotros</loc>
+        <lastmod>2026-10-04T18:20:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios</loc>
-        <lastmod>2026-09-23T17:16:59+00:00</lastmod>
+        <loc>https://apuntomotors.com/servicios</loc>
+        <lastmod>2026-10-04T18:20:25+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/blog</loc>
-        <lastmod>2026-09-23T17:16:59+00:00</lastmod>
+        <loc>https://apuntomotors.com/blog</loc>
+        <lastmod>2026-10-04T18:20:25+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/contacto</loc>
-        <lastmod>2026-09-23T17:16:59+00:00</lastmod>
+        <loc>https://apuntomotors.com/contacto</loc>
+        <lastmod>2026-10-04T18:20:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost/terminos-y-condiciones</loc>
-        <lastmod>2026-09-23T17:16:59+00:00</lastmod>
+        <loc>https://apuntomotors.com/terminos-y-condiciones</loc>
+        <lastmod>2026-10-04T18:20:25+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>http://localhost/politicas-de-privacidad</loc>
-        <lastmod>2026-09-23T17:16:59+00:00</lastmod>
+        <loc>https://apuntomotors.com/politicas-de-privacidad</loc>
+        <lastmod>2026-10-04T18:20:25+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>http://localhost/libro-de-reclamaciones</loc>
-        <lastmod>2026-09-23T17:16:59+00:00</lastmod>
+        <loc>https://apuntomotors.com/libro-de-reclamaciones</loc>
+        <lastmod>2026-10-04T18:20:25+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios/mantenimiento-preventivo-y-correctivo</loc>
+        <loc>https://apuntomotors.com/servicios/mantenimiento-preventivo-y-correctivo</loc>
         <lastmod>2026-05-29T05:02:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios/suspension-direccion-frenos-y-embragues</loc>
+        <loc>https://apuntomotors.com/servicios/suspension-direccion-frenos-y-embragues</loc>
         <lastmod>2026-05-29T05:02:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios/diagnostico-computarizado</loc>
+        <loc>https://apuntomotors.com/servicios/diagnostico-computarizado</loc>
         <lastmod>2026-05-29T05:02:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios/reparacion-de-motor</loc>
+        <loc>https://apuntomotors.com/servicios/reparacion-de-motor</loc>
         <lastmod>2026-05-29T05:02:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios/aire-acondicionado</loc>
+        <loc>https://apuntomotors.com/servicios/aire-acondicionado</loc>
         <lastmod>2026-05-29T05:02:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios/luces-en-general</loc>
+        <loc>https://apuntomotors.com/servicios/luces-en-general</loc>
         <lastmod>2026-05-29T05:02:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios/full-tuning</loc>
+        <loc>https://apuntomotors.com/servicios/full-tuning</loc>
         <lastmod>2026-05-29T05:02:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios/tratamiento-de-pintura</loc>
+        <loc>https://apuntomotors.com/servicios/tratamiento-de-pintura</loc>
         <lastmod>2026-05-29T05:02:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://localhost/servicios/limpieza-de-inyectores-ultrasonido</loc>
+        <loc>https://apuntomotors.com/servicios/limpieza-de-inyectores-ultrasonido</loc>
         <lastmod>2026-05-29T05:02:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://apuntomotors.com/blog/5-senales-de-que-los-frenos-de-tu-vehiculo-necesitan-revision-urgente</loc>
+        <lastmod>2026-09-24T14:04:05+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
 </urlset>
