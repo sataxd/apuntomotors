@@ -1,0 +1,25 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /catalogo
+Disallow: /producto/
+Disallow: /formula/
+Disallow: /thanks
+Disallow: /login
+Disallow: /register
+Disallow: /confirm-email/
+Disallow: /confirmation/
+Disallow: /my-account
+Disallow: /mailing/
+Disallow: /popup
+
+Allow: /
+Allow: /api/services/media/
+Allow: /api/posts/media/
+Allow: /api/sliders/media/
+Allow: /api/aboutus/media/
+Allow: /api/instagram_post/media/
+
+Sitemap: https://apuntomotors.com/sitemap.xml

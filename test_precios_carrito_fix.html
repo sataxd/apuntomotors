@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Precios en Carrito</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Test de Precios en Carrito - ShakerCup</h1>
+    
+    <div class="section">
+        <h2>✅ Cambios Realizados</h2>
+        <ul>
+            <li>✅ <strong>CarritoContext.jsx</strong>: Corregida la función <code>actualizarPrecios</code> para manejar precios por variación</li>
+            <li>✅ <strong>Checkout.jsx</strong>: Corregido el cálculo de <code>totalPrice</code> para usar precios de variaciones</li>
+            <li>✅ <strong>Header.jsx</strong>: Corregido el cálculo de <code>totalPrecio</code> para usar precios de variaciones</li>
+            <li>✅ <strong>ItemController.php</strong>: Asegurado que el método <code>verifyStock</code> devuelva campos de precio</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🔧 Problemas Identificados y Solucionados</h2>
+        
+        <h3>1. Problema en CarritoContext.jsx</h3>
+        <p class="error"><strong>Antes:</strong> La función actualizarPrecios enviaba múltiples items al backend (uno por variación) pero solo usaba el primer item que coincidiera con el ID del producto.</p>
+        <p class="success"><strong>Después:</strong> Ahora busca específicamente cada variación por ID + color + talla y actualiza el precio de cada una individualmente.</p>
+        
+        <h3>2. Problema en Checkout.jsx</h3>
+        <p class="error"><strong>Antes:</strong> El cálculo de totalPrice usaba item.final_price para todas las variaciones del mismo producto.</p>
+        <p class="success"><strong>Después:</strong> Ahora usa v.final_price (precio específico de cada variación) con fallback a item.final_price.</p>
+        
+        <h3>3. Problema en Header.jsx</h3>
+        <p class="error"><strong>Antes:</strong> Similar al checkout, usaba item.final_price para todas las variaciones.</p>
+        <p class="success"><strong>Después:</strong> Ahora usa v.final_price con fallback apropiado.</p>
+    </div>
+
+    <div class="section">
+        <h2>📋 Pasos para Verificar</h2>
+        <ol>
+            <li>Ir a la página del producto ShakerCup</li>
+            <li>Seleccionar el color "Negro" y agregar al carrito</li>
+            <li>Seleccionar el color "Blanco" y agregar al carrito</li>
+            <li>Verificar que en el carrito (header) se muestre un precio correcto (no 0)</li>
+            <li>Ir al checkout y verificar que los precios individuales y el total no sean 0</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>🐛 Cómo Depurar si Persisten Problemas</h2>
+        
+        <h3>1. En la Consola del Navegador</h3>
+        <pre>
+// Ver el carrito actual
+console.log('Carrito:', JSON.parse(localStorage.getItem('carrito')));
+
+// Verificar que los precios se están actualizando
+// Abrir Network tab y buscar requests a 'verify-stock'
+        </pre>
+        
+        <h3>2. Verificar Endpoint Backend</h3>
+        <p>El endpoint <code>/api/items/verify-stock</code> debe devolver:</p>
+        <pre>
+{
+  "data": [
+    {
+      "id": 33,
+      "price": 35.00,
+      "final_price": 35.00,
+      "discount": 0,
+      "stock": 100,
+      "color": "Negro",
+      "size": null,
+      "name": "ShakerCup"
+    },
+    {
+      "id": 33,
+      "price": 35.00,
+      "final_price": 35.00,
+      "discount": 0,
+      "stock": 100,
+      "color": "Blanco",
+      "size": null,
+      "name": "ShakerCup"
+    }
+  ]
+}
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>⚠️ Notas Importantes</h2>
+        <ul>
+            <li><strong>Cache del Navegador:</strong> Puede que necesites hacer Ctrl+F5 para refrescar completamente</li>
+            <li><strong>Estructura del Carrito:</strong> Los productos con variaciones ahora deben tener precios tanto en el nivel del producto como en cada variación</li>
+            <li><strong>Backward Compatibility:</strong> Se mantiene compatibilidad con productos sin variaciones</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Resultado Esperado</h2>
+        <p class="success">Después de estos cambios:</p>
+        <ul>
+            <li>✅ Al agregar ShakerCup Negro al carrito, debe mostrar el precio correcto</li>
+            <li>✅ Al agregar ShakerCup Blanco al carrito, debe mostrar el precio correcto</li>
+            <li>✅ En el checkout, el subtotal debe ser la suma correcta de ambos items</li>
+            <li>✅ Ya no deben aparecer precios en 0</li>
+        </ul>
+    </div>
+</body>
+</html>

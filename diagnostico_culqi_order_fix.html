@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico: Error de Culqi - Order</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        .error { background-color: #ffebee; border-left: 4px solid #f44336; }
+        .fix { background-color: #e8f5e8; border-left: 4px solid #4caf50; }
+        .warning { background-color: #fff3e0; border-left: 4px solid #ff9800; }
+        .info { background-color: #e3f2fd; border-left: 4px solid #2196f3; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; border-radius: 4px; }
+        .step { margin: 10px 0; padding: 10px; background: #f9f9f9; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🚨 Diagnóstico: Error de Culqi - "order" must be one of [number, string]</h1>
+    
+    <div class="section error">
+        <h2>❌ Problema Identificado</h2>
+        <p><strong>Error:</strong> <code>ValidationError: "order" must be one of [number, string]</code></p>
+        <p><strong>Causa:</strong> El campo "order" está llegando como <code>null</code> o <code>undefined</code> a Culqi.settings()</p>
+        <p><strong>Razón principal:</strong> Los precios del carrito están en 0, por lo que totalPrice = 0 y no se genera la orden.</p>
+    </div>
+
+    <div class="section fix">
+        <h2>✅ Correcciones Aplicadas</h2>
+        
+        <div class="step">
+            <h3>1. Corregido el problema de precios en CarritoContext.jsx</h3>
+            <p>✅ La función <code>actualizarPrecios</code> ahora maneja correctamente las variaciones</p>
+            <p>✅ Cada variación obtiene su precio específico del backend</p>
+        </div>
+        
+        <div class="step">
+            <h3>2. Corregido el cálculo de totalPrice en Checkout.jsx</h3>
+            <p>✅ Ahora usa <code>v.final_price</code> para cada variación en lugar de <code>item.final_price</code></p>
+            <p>✅ Agregadas validaciones de seguridad para precios null/undefined</p>
+        </div>
+        
+        <div class="step">
+            <h3>3. Agregadas validaciones robustas en onCulqiOpen</h3>
+            <p>✅ Validación de carrito no vacío</p>
+            <p>✅ Validación de totalPrice > 0</p>
+            <p>✅ Validación de precios válidos en productos</p>
+            <p>✅ Validación de respuesta exitosa del backend</p>
+            <p>✅ Validación de order_number antes de pasarlo a Culqi</p>
+        </div>
+        
+        <div class="step">
+            <h3>4. Agregados logs de debug</h3>
+            <p>✅ Console.log para rastrear el flujo de creación de orden</p>
+            <p>✅ Información detallada en consola para diagnosticar problemas</p>
+        </div>
+    </div>
+
+    <div class="section info">
+        <h2>🔍 Pasos para Verificar la Solución</h2>
+        
+        <div class="step">
+            <h3>Paso 1: Limpiar y probar</h3>
+            <ol>
+                <li>Abre la consola del navegador (F12)</li>
+                <li>Limpia el localStorage: <code>localStorage.clear()</code></li>
+                <li>Recarga la página completamente (Ctrl+F5)</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3>Paso 2: Agregar productos al carrito</h3>
+            <ol>
+                <li>Ve a un producto (ej: ShakerCup)</li>
+                <li>Selecciona un color y agrega al carrito</li>
+                <li>Verifica en la consola que se ejecute la función actualizarPrecios</li>
+                <li>Verifica que los precios NO sean 0 en el carrito del header</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3>Paso 3: Verificar en checkout</h3>
+            <ol>
+                <li>Ve al checkout</li>
+                <li>Verifica que el subtotal NO sea S/ 0.00</li>
+                <li>Llena todos los campos requeridos</li>
+                <li>Haz clic en "Realizar el pedido"</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3>Paso 4: Verificar logs de Culqi</h3>
+            <p>En la consola deberías ver:</p>
+            <pre>
+🚀 Creando orden Culqi: { totalPrice: XX.XX, cart: [...], saleData: {...} }
+📋 Respuesta de Culqi: { data: { id: "ord_xxx", order_number: "#WF-xxx" } }
+✅ Orden creada exitosamente: ord_xxx
+            </pre>
+        </div>
+    </div>
+
+    <div class="section warning">
+        <h2>⚠️ Si Persiste el Problema</h2>
+        
+        <div class="step">
+            <h3>Verificar Backend</h3>
+            <ol>
+                <li>Revisa los logs de Laravel: <code>storage/logs/laravel.log</code></li>
+                <li>Verifica que el endpoint <code>/api/items/verify-stock</code> devuelva precios</li>
+                <li>Verifica que <code>/api/culqi/order</code> funcione correctamente</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3>Verificar Configuración de Culqi</h3>
+            <ol>
+                <li>Verifica las variables de entorno: <code>CULQI_PRIVATE_KEY</code>, <code>CULQI_API</code></li>
+                <li>Verifica que la configuración de Culqi en el frontend esté correcta</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3>Debug Manual</h3>
+            <p>En la consola del navegador, ejecuta:</p>
+            <pre>
+// Verificar carrito
+console.log('Carrito:', JSON.parse(localStorage.getItem('carrito')));
+
+// Verificar que los productos tengan precios
+const cart = JSON.parse(localStorage.getItem('carrito'));
+cart.forEach(item => {
+    console.log('Item:', item.name, 'Precio:', item.final_price);
+    if (item.variations) {
+        item.variations.forEach(v => {
+            console.log('  Variación:', v.color, v.size, 'Precio:', v.final_price);
+        });
+    }
+});
+            </pre>
+        </div>
+    </div>
+
+    <div class="section info">
+        <h2>📋 Resultado Esperado</h2>
+        <p>Después de estas correcciones:</p>
+        <ul>
+            <li>✅ Los precios en el carrito deben ser mayores a 0</li>
+            <li>✅ El totalPrice en checkout debe ser mayor a 0</li>
+            <li>✅ Se debe generar correctamente la orden en Culqi</li>
+            <li>✅ El campo "order" debe llegar como string a Culqi.settings()</li>
+            <li>✅ No debe aparecer el error de validación</li>
+        </ul>
+    </div>
+</body>
+</html>
