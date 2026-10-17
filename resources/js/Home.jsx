@@ -47,11 +47,11 @@ const Home = ({
 
             <Slider items={sliders} />
           
+            <ContactSection />
+
             <ServicesHome dataAbout={dataAbout} services={services} is_home={true} />
 
             <ServiceTecnical dataAbout={dataAbout} />
-
-            <ContactSection />
 
             <SectoresClientes strengthin={strengthin} strengthout={strengthout} indicadores={indicadores}/>
 

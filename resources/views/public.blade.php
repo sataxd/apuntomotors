@@ -213,16 +213,33 @@
         </script>
     @endif
 
-    <!-- Google Analytics -->
-    @if($googleAnalytics)
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalytics }}"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+    <!-- Google tag (gtag.js) - Google Ads & Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18470998919"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-18470998919');
+        @if($googleAnalytics)
             gtag('config', '{{ $googleAnalytics }}');
-        </script>
-    @endif
+        @endif
+
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-18470998919/vhXKCOC3lqAdEIen1OdE',
+                    'event_callback': callback
+                });
+            }
+            return false;
+        }
+    </script>
 
     <!-- Microsoft Clarity -->
     @if($microsoftClarity)

@@ -43,8 +43,8 @@
       "resources/js/components/Blog/Results.jsx"
     ]
   },
-  "_ContactSection-BfLG3cGG.js": {
-    "file": "assets/ContactSection-BfLG3cGG.js",
+  "_ContactSection-B15ZyTUP.js": {
+    "file": "assets/ContactSection-B15ZyTUP.js",
     "name": "ContactSection",
     "imports": [
       "resources/js/components/About/AboutHeader.jsx",
@@ -2158,7 +2158,7 @@
     ]
   },
   "resources/js/Contact.jsx": {
-    "file": "assets/Contact-Brfd20yr.js",
+    "file": "assets/Contact-Lhd_p66q.js",
     "name": "Contact",
     "src": "resources/js/Contact.jsx",
     "isEntry": true,
@@ -2172,7 +2172,7 @@
       "resources/js/Admin/ItemVariants.jsx",
       "_Footer-COBcWHrO.js",
       "resources/js/components/Tailwind/Header.jsx",
-      "_ContactSection-BfLG3cGG.js",
+      "_ContactSection-B15ZyTUP.js",
       "_index.esm-DvnRuS2a.js",
       "____vite-browser-external_commonjs-proxy-C9-083JZ.js",
       "_main-CfHcH2Mm.js",
@@ -2300,7 +2300,7 @@
     ]
   },
   "resources/js/Home.jsx": {
-    "file": "assets/Home-Ds5YJl6F.js",
+    "file": "assets/Home-C9o5tqbP.js",
     "name": "Home",
     "src": "resources/js/Home.jsx",
     "isEntry": true,
@@ -2323,7 +2323,7 @@
       "_ServiceTecnical-vxOMtNCB.js",
       "resources/js/components/Home/Slider.jsx",
       "_proxy-Cc6Tl9Qz.js",
-      "_ContactSection-BfLG3cGG.js",
+      "_ContactSection-B15ZyTUP.js",
       "_HtmlContent-DiaZqYbg.js",
       "_ServicesHome-B3VmSHri.js",
       "_index-DC1rVYmi.js",

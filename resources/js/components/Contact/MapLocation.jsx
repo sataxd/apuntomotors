@@ -13,7 +13,7 @@ const MapLocation = ({ generals }) => {
   
   return (
     <>
-      <div className="relative w-full">
+      <div className="relative w-full pt-16 lg:pt-20">
        
             <div className="w-full h-[400px] lg:h-[450px] rounded-lg shadow-lg">
               <iframe
