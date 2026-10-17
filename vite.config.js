@@ -35,6 +35,11 @@ export default defineConfig({
     build: {
         rollupOptions: {
             output: {
+                manualChunks(id) {
+                    if (id.includes('jsencrypt')) {
+                        return 'vendor';
+                    }
+                },
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name == 'app-C6GHMxSp.css')
                         return 'app.css';
