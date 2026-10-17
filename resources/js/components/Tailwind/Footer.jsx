@@ -250,7 +250,7 @@ const Footer = () => {
 
                                 {WhatsApp && (
                                     <a
-                                        href={WhatsApp.link}
+                                        href={WhatsApp.link ? WhatsApp.link.replace("phone=+", "phone=").replace(/ /g, "%20") : ""}
                                         aria-label="WhatsApp"
                                         target="_blank"
                                         rel="noopener noreferrer"

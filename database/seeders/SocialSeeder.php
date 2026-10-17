@@ -30,7 +30,7 @@ class SocialSeeder extends Seeder
                 'name' => 'Apunto Motors',
                 'description' => 'WhatsApp',
                 'icon' => 'fab fa-whatsapp',
-                'link' => 'https://api.whatsapp.com/send?phone=+51923508259&text=%C2%A1Hola%21+Quisiera+que+me+informe+sobre+los+servicios+de+Apunto Motors.'
+                'link' => 'https://api.whatsapp.com/send?phone=51923508259&text=%C2%A1Hola!%20Quisiera%20que%20me%20informe%20sobre%20los%20servicios%20de%20Apunto%20Motors.'
             ],
         ];
 

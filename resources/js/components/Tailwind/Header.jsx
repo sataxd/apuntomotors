@@ -202,6 +202,9 @@ const Header = ({
         (social) => social.description === "Facebook"
     );
 
+    const rawWhatsAppLink = WhatsApp?.link || "https://api.whatsapp.com/send?phone=51923508259&text=%C2%A1Hola!%20Quisiera%20que%20me%20informe%20sobre%20los%20servicios%20de%20Apunto%20Motors.";
+    const cleanWhatsAppLink = rawWhatsAppLink.replace("phone=+", "phone=").replace(/ /g, "%20");
+
     const subMenuProductos = [
         { name: "Sistemas de Intercomunicadores", link: "/intercomunicadores" },
         { name: "Sistemas de Videoporteros", link: "/videoporteros" },
@@ -487,23 +490,32 @@ const Header = ({
 
                     </div>
 
-                    {WhatsApp && (
-                        <div className="flex justify-end w-full mx-auto z-[100] relative  ">
-                            <div className="fixed bottom-3 right-2 md:bottom-[1rem] lg:bottom-[2rem] lg:right-3 z-20 cursor-pointer">
-                                <a
-                                    target="_blank"
-                                    id="whatsapp-toggle"
-                                    href={WhatsApp.link}
-                                >
-                                    <img
-                                        src="/assets/img/whatsapp.svg"
-                                        alt="whatsapp"
-                                        className="mr-3 w-16 h-16 md:w-[80px] md:h-[80px]  animate-bounce duration-300"
-                                    />
-                                </a>
-                            </div>
+                    <div className="flex justify-end w-full mx-auto z-[100] relative">
+                        <div className="fixed bottom-3 right-2 md:bottom-[1rem] lg:bottom-[2rem] lg:right-3 z-20 cursor-pointer">
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                id="whatsapp-toggle"
+                                href={cleanWhatsAppLink}
+                                aria-label="Contactar por WhatsApp"
+                                onClick={() => {
+                                    if (typeof window.gtag_report_conversion_whatsapp === "function") {
+                                        window.gtag_report_conversion_whatsapp(cleanWhatsAppLink);
+                                    } else if (typeof window.gtag === "function") {
+                                        window.gtag("event", "conversion", {
+                                            send_to: "AW-18470998919/B_KgCLuPqqAdEIen1OdE",
+                                        });
+                                    }
+                                }}
+                            >
+                                <img
+                                    src="/assets/img/whatsapp.svg"
+                                    alt="whatsapp"
+                                    className="mr-3 w-16 h-16 md:w-[80px] md:h-[80px] animate-bounce duration-300"
+                                />
+                            </a>
                         </div>
-                    )}
+                    </div>
                 </header>
                 
                 {/* Menú Móvil */}

@@ -1,1 +1,0 @@
-import"./AboutHeader-B0xeqd_u.js";import"./index-B80Lgev0.js";/* empty css              */import"./main-CfHcH2Mm.js";import"./index.esm-DvnRuS2a.js";import"./WhatsAppModal-LLmW1PnR.js";import"./ItemVariants-CIPWu15z.js";import"./___vite-browser-external_commonjs-proxy-C9-083JZ.js";moment.tz.setDefault("UTC");
